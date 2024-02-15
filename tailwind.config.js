@@ -6,6 +6,17 @@ export default {
   "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    colors:{
+      grey:"#d4d4d4"
+    },
+    fontSize:{
+      fsTitle: "3rem",
+      fsSubtitle: "1.5rem",
+      fsText: "1rem"
+    },
+    fontFamily:{
+      racing: "'Racing Sans One', sans-serif",
+    }
   },
   darkMode: "class",
   plugins: [nextui()]
