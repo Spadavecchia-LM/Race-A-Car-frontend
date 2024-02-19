@@ -7,6 +7,8 @@ export default {
   theme: {
     extend: {},
     colors:{
+      primaryBlue:"#032047",
+      primaryWhite: "#F8F4F4"
     },
     fontSize:{
       fsTitle: "3rem",
