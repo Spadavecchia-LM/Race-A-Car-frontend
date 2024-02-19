@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -19,6 +19,7 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+
   const rotate = () => {
 
     document.querySelector("#hamburger").classList.toggle("rotate-90")
@@ -27,7 +28,7 @@ const Header = () => {
   const menuItems = ["Crear cuenta", "Iniciar sesión"];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-primaryBlue w-screen justify-between h-[10vh] max-w-screen">
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-primaryBlue w-screen justify-between h-[100px] max-w-full ">
  
 
        
@@ -35,7 +36,7 @@ const Header = () => {
         <img
           src={logo}
           alt="LOGO DE LA PAGINA"
-          className="w-[150px] h-[80px]"
+          className="w-[150px] h-[100px]"
         />
         <p className="text-primaryWhite ">RACE-A-CAR</p>
       </NavbarBrand>

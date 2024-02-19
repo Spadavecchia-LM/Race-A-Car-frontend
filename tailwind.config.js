@@ -8,7 +8,8 @@ export default {
     extend: {},
     colors:{
       primaryBlue:"#032047",
-      primaryWhite: "#F8F4F4"
+      primaryWhite: "#F8F4F4",
+      secondaryBlue: "#000e14"
     },
     fontSize:{
       fsTitle: "3rem",
