@@ -1,8 +1,17 @@
 import React from 'react'
+import Hero from './utils/Hero'
+import SearchBox from './utils/SearchBox'
+import Marcas from './containers/Marcas'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className='bg-secondaryBlue'>
+    <Hero/>
+    <SearchBox/>
+    <Marcas/>
+    <Marcas/>
+    </div>
+    
   )
 }
 
