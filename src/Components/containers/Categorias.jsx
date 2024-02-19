@@ -2,21 +2,22 @@ import React from 'react'
 import { categorias } from '../../js/data'
 import { FaArrowRight } from "react-icons/fa6"
 import CategoriaCard from '../cards/CategoriaCard'
+import { Button } from '@nextui-org/react'
 
 const Categorias = () => {
   return (
     <>
         <div className='w-[90%] mx-auto my-10'>
         <div className='flex justify-between'>
-            <h3 className='text-primaryWhite'>Alquila por marcas</h3>
+            <h3 className='text-primaryWhite'>Alquilar por tipo de vehiculo</h3>
             <Button endContent={<FaArrowRight />} size='lg' className='text-primaryWhite' variant='light'>Ver todas</Button>
         </div>
-        <div className='flex flex-wrap gap-5 justify-between '>
+        <div className='grid gap-5  w-[100%] lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 sm:grid-rows-12 '>
             {categorias.map((categoria, index) => {
                 return (
-                    <>
-                    <CategoriaCard key={index} categoria={categoria}/>
-                    </>
+                    <div key={index}>
+                    <CategoriaCard  categoria={categoria}/>
+                    </div>
                 )
             })}
         </div>

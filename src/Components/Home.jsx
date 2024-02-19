@@ -2,6 +2,8 @@ import React from 'react'
 import Hero from './utils/Hero'
 import SearchBox from './utils/SearchBox'
 import Marcas from './containers/Marcas'
+import Categorias from "./containers/Categorias"
+import Publicaciones from './containers/Publicaciones'
 
 const Home = () => {
   return (
@@ -9,7 +11,8 @@ const Home = () => {
     <Hero/>
     <SearchBox/>
     <Marcas/>
-    <Marcas/>
+    <Categorias/>
+    <Publicaciones/>
     </div>
     
   )

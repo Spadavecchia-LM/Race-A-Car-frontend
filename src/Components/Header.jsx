@@ -76,12 +76,11 @@ const Header = () => {
     
    
 
-      <NavbarMenu className="mt-5">
+      <NavbarMenu className="pt-10 bg-primaryWhite">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              className="w-full"
-              color={index === menuItems.length - 1 ? "danger" : "foreground"}
+              className={index === menuItems.length - 1 ? "text-primary" : "text-secondaryBlue"}
               href="#"
               size="lg"
             >

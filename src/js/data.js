@@ -52,52 +52,120 @@ const marcas = [
 const categorias = [
     {
         nombre:"SUV",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360550/tipos/crossover-red_1_jebqnk.png"
     },
     {
         nombre:"Wagon",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360550/tipos/wagon-red_1_1_xidk8l.png"
     },
     {
         nombre:"Sport Coupe",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/sport-coupe-red_1_razy1f.png"
     },
     {
         nombre:"Sedan",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/sedan-red_1_b06k6d.png"
     },
     {
         nombre:"Hatchback",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/suv-red_1_grmgt1.png"
     },
     {
         nombre:"Compact",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/compact-red_1_aejt0n.png"
     },
     {
         nombre:"Limousine",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360550/tipos/wagon-red_1_1_xidk8l.png"
     },
     {
         nombre:"Convertible",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360550/tipos/convertible-red_1_eke61j.png"
     },
     {
         nombre:"Pick up",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/pickup-red_1_y8sucs.png"
     },
     {
         nombre:"GT",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/sport-coupe-red_1_razy1f.png"
     },
     {
         nombre:"Electrico",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/sedan-red_1_b06k6d.png"
     },
     {
         nombre:"Híbrido",
-        imagen:""
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708360549/tipos/sedan-red_1_b06k6d.png"
     }
 ]
 
-export {marcas, categorias}
+const publicaciones = [
+    {
+        id:1,
+        marca: "BMW",
+        modelo: "X7 M50i",
+        anio: 2022,
+        precio: 87,
+        capacidad: 5,
+        categoria: "SUV",
+        hp:350,
+        transmision:"manual",
+        imagenes: [
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363564/autos/bmw%20suv/timur-khabibulin-WueuHR_O_rM-unsplash_dmrg1t.jpg"
+        ]
+
+    },
+    {
+        id:2,
+        marca: "Porsche",
+        modelo: "Cayenne GTS",
+        anio: 2022,
+        precio: 70,
+        capacidad: 4,
+        categoria: "Sedan",
+        hp:350,
+        transmision:"manual",
+        imagenes: [
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363709/autos/cayennes%20gts/martin-katler-NW48HPXgE4U-unsplash_hgsmnv.jpg"
+        ]
+
+    },
+    {
+        id:3,
+        marca: "Mc Laren",
+        modelo: "750s",
+        anio: 2022,
+        precio: 90,
+        capacidad: 2,
+        categoria: "GT",
+        hp:350,
+        transmision:"automatica",
+        imagenes: [
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363797/autos/mc%20laren/baron-mcDJzDxqwBQ-unsplash_t9fzu7.jpg"
+        ]
+
+    },
+    {
+        id:4,
+        marca: "BMW",
+        modelo: "M5 Competition",
+        anio: 2023,
+        precio: 120,
+        capacidad: 4,
+        categoria: "Sport Coupe",
+        hp:720,
+        transmision:"automatica",
+        imagenes: [
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363954/autos/bmw%20m5/jakob-rosen--Db-eClK4vE-unsplash_djvhfn.jpg"
+        ]
+
+    },
+    
+]
+
+export {marcas, categorias, publicaciones}
