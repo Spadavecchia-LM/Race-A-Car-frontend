@@ -24,6 +24,9 @@ export default {
       fsText: "1rem",
       fsHero: "50px"
     },
+    fontFamily:{
+      jamol: '"Jomolhari", serif'
+    }
 
 
 

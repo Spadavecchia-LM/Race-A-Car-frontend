@@ -7,7 +7,7 @@ import { FaArrowRight } from "react-icons/fa6";
 const Marcas = () => {
   return (
     <div className='w-[90%] mx-auto my-10'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-center'>
             <h3 className='text-primaryWhite'>Alquilar por marcas</h3>
             <Button endContent={<FaArrowRight />} size='lg' className='text-primaryWhite' variant='light'>Ver todas</Button>
         </div>

@@ -10,14 +10,14 @@ const PublicacionCard = ({publicacion}) => {
 
 
   return (
-    <Card shadow="sm" className='max-w-[100%] p-3'>
+    <Card shadow="sm" className='max-w-[100%]  p-3'>
     <CardBody className="overflow-visible p-0">
       <Image
         shadow="sm"
         radius="lg"
         width="100%"
         alt="imagen del auto"
-        className="w-full object-cover h-[250px]"
+        className="w-full object-cover h-[500px]"
         src={publicacion.imagenes[0]}
       />
     </CardBody>
@@ -29,7 +29,7 @@ const PublicacionCard = ({publicacion}) => {
        </div>
       
     {/* car specs */}
-        <div className='flex w-full justify-around p-5 bg-[#fafafa]'>
+        <div className='flex w-full justify-around p-5 sm:p-2 bg-[#edf0f5]  rounded-2xl '>
             <span className='flex flex-col items-center'><TbEngine /> {publicacion.hp}cv</span>
             <span className='flex flex-col items-center' ><GiGearStickPattern   /> {publicacion.transmision}</span>
             <span className='flex flex-col items-center'><GoPeople/> {publicacion.capacidad} personas</span>
