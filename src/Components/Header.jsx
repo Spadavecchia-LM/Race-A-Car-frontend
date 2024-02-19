@@ -38,7 +38,7 @@ const Header = () => {
           alt="LOGO DE LA PAGINA"
           className="w-[150px] h-[100px]"
         />
-        <p className="text-primaryWhite ">RACE-A-CAR</p>
+        <p className="text-primaryWhite hidden md:block">RACE-A-CAR</p>
       </NavbarBrand>
       
 
