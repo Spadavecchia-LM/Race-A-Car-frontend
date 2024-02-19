@@ -1,10 +1,6 @@
 import Footer from "./Components/Footer"
 import Header from "./Components/Header"
 import Home from "./Components/Home"
-<<<<<<< HEAD
-
-=======
->>>>>>> leo
 
 function App() {
 
@@ -13,10 +9,6 @@ function App() {
 
   <Header/>
   <Home/>
-<<<<<<< HEAD
-  <Footer/>
-=======
->>>>>>> leo
     </>
   )
 }
