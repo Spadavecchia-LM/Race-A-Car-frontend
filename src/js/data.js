@@ -1,0 +1,103 @@
+const marcas = [
+    {
+        marca:"Toyota",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310342/marcas/Vector_3_ipyf6k.png"
+    },
+    {
+        marca:"Ford",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310342/marcas/layer1_nzwcu0.png"
+    },
+    {
+        marca:"Tesla",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310342/marcas/Tesla_svg_fpdowy.png"
+    },
+    {
+        marca:"Volkswagen",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310344/marcas/Volkswagen_USA_svg_p5bjis.png"
+    },
+    {
+        marca:"Honda",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/Honda_svg_sfchjj.png"
+    },
+    {
+        marca:"Nissan",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/Nissan_USA_svg_jfxnga.png"
+    },
+    {
+        marca:"Chevrolet",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310342/marcas/Chevrolet_-_png_lqwfxw.png"
+    },
+    {
+        marca:"BMW",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/bmw_logo_icon_145840_1_ukh4ig.png"
+    },
+    {
+        marca:"Mercedes-Benz",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/mercedes_benz_logo_icon_145798_1_p1uibe.png"
+    },
+    {
+        marca:"Hyundai",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/Hyundai_svg_tyz6r4.png"
+    },
+    {
+        marca:"KIA",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/Kia_svg_b2gz5c.png"
+    },
+    {
+        marca:"AUDI",
+        imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310342/marcas/Audi_svg_kotuqc.png"
+    },
+]
+
+const categorias = [
+    {
+        nombre:"SUV",
+        imagen:""
+    },
+    {
+        nombre:"Wagon",
+        imagen:""
+    },
+    {
+        nombre:"Sport Coupe",
+        imagen:""
+    },
+    {
+        nombre:"Sedan",
+        imagen:""
+    },
+    {
+        nombre:"Hatchback",
+        imagen:""
+    },
+    {
+        nombre:"Compact",
+        imagen:""
+    },
+    {
+        nombre:"Limousine",
+        imagen:""
+    },
+    {
+        nombre:"Convertible",
+        imagen:""
+    },
+    {
+        nombre:"Pick up",
+        imagen:""
+    },
+    {
+        nombre:"GT",
+        imagen:""
+    },
+    {
+        nombre:"Electrico",
+        imagen:""
+    },
+    {
+        nombre:"Híbrido",
+        imagen:""
+    }
+]
+
+export {marcas, categorias}

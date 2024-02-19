@@ -9,13 +9,22 @@ export default {
     colors:{
       primaryBlue:"#032047",
       primaryWhite: "#F8F4F4",
-      secondaryBlue: "#000e14"
+      secondaryBlue: "#000e14",
+      primaryGold:"#ba8f04",
+      secondaryBlue:"#000E14",
+      formGrey:"#d3d3d3",
+      transparent:"transparent"
+    },
+    backgroundImage:{
+      "hero": "url('./src/assets/heroAuto.png')"
     },
     fontSize:{
       fsTitle: "3rem",
       fsSubtitle: "1.5rem",
-      fsText: "1rem"
+      fsText: "1rem",
+      fsHero: "50px"
     },
+
 
   },
   darkMode: "class",
