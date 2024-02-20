@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Image, Button} from "@nextui-org/react";
+import {Card, Image, Button, CardBody} from "@nextui-org/react";
 import { useNavigate } from 'react-router-dom';
 
 const PublicacionDetal = ({publicacion}) => {
@@ -11,13 +11,16 @@ const PublicacionDetal = ({publicacion}) => {
   return (
     <>
   <div className='grid grid-cols-1 grid-rows-1 gap-1 md:grid-cols-2'>
-      <div className='row-span-2 hidden md:block '>
+      <div className='row-span-2 '>
       <Card className="md:h-[100%] rounded-none">
+        <CardBody>
+        <h1 className=' text-primaryBlue text-[24px] sm:text-[40px] md:text-[50px]'>{marca} {modelo} {anio}</h1>
+      
+        </CardBody>
       <Image
-        removeWrapper
         
         alt="Card background"
-        className="z-0 w-full h-full object-cover rounded-none"
+        className="z-0 w-full object-cover rounded-none"
         src={imagenes[0]}
       />
     </Card>
