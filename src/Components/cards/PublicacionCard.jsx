@@ -20,7 +20,7 @@ const PublicacionCard = ({publicacion}) => {
         width="100%"
         alt="imagen del auto"
         className="w-full object-cover h-[500px]"
-        src={publicacion.imagenes[0]}
+        src={publicacion.imagenes[1]}
       />
     </CardBody>
 

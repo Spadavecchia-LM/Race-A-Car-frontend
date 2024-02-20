@@ -11,7 +11,7 @@ const Marcas = () => {
             <h3 className='text-primaryWhite'>Alquilar por marcas</h3>
             <Button endContent={<FaArrowRight />} size='lg' className='text-primaryWhite' variant='light'>Ver todas</Button>
         </div>
-        <div className='grid gap-5  w-[100%] lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 sm:grid-rows-12 '>
+        <div className='grid gap-5 grid-cols-1 grid-rows-12 w-[100%] lg:grid-cols-6 lg:grid-rows-2  md:grid-cols-4 sm:grid-cols-1 sm:grid-rows-12  '>
             {marcas.map((marca, index) => {
                 return (
                     <div key={index}>

@@ -10,7 +10,7 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
 } from "@nextui-org/react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 

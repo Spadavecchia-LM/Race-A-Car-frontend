@@ -8,3 +8,6 @@
 html{
     font-family: "Lora", serif;
 }
+#lugarRecogida,#fechaRecogida,#lugarEntrega,#fechaEntrega{
+    border-style:none;
+}

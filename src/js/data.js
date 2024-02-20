@@ -112,11 +112,11 @@ const publicaciones = [
         hp:350,
         transmision:"manual",
         imagenes: [
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363564/autos/bmw%20suv/timur-khabibulin-WueuHR_O_rM-unsplash_dmrg1t.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2019-BMW-X7-006-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2019-BMW-X7-004-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2019-BMW-X7-001-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2019-BMW-X7-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2019-BMW-X7-007-1600.jpg",
         ]
 
     },
@@ -131,11 +131,11 @@ const publicaciones = [
         hp:350,
         transmision:"manual",
         imagenes: [
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Porsche/2020-Porsche-Cayenne-GTS-004-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Porsche/2020-Porsche-Cayenne-GTS-003-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Porsche/2015-Porsche-Cayenne-GTS-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Porsche/2020-Porsche-Cayenne-GTS-007-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Porsche/2020-Porsche-Cayenne-GTS-005-1600.jpg",
 
         ]
 
@@ -144,18 +144,18 @@ const publicaciones = [
         id:3,
         marca: "Mc Laren",
         modelo: "750s",
-        anio: 2022,
+        anio: 2024,
         precio: 90,
         capacidad: 2,
         categoria: "GT",
         hp:350,
         transmision:"automatica",
         imagenes: [
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/McLaren/2024-McLaren-750S-002-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/McLaren/2024-McLaren-750S-001-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/McLaren/2024-McLaren-750S-003-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/McLaren/2024-McLaren-750S-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/McLaren/2024-McLaren-750S-004-1600.jpg",
 
         ]
 
@@ -164,18 +164,18 @@ const publicaciones = [
         id:4,
         marca: "BMW",
         modelo: "M5 Competition",
-        anio: 2023,
+        anio: 2021,
         precio: 120,
         capacidad: 4,
         categoria: "Sport Coupe",
         hp:720,
         transmision:"automatica",
         imagenes: [
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2021-BMW-M5-Competition-002-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2021-BMW-M5-Competition-006-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2021-BMW-M5-Competition-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2021-BMW-M5-Competition-007-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/BMW/2021-BMW-M5-Competition-012-1600.jpg",
 
         ]
 
