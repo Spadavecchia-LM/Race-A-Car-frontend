@@ -3,7 +3,7 @@ import Logo from '../../assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-primaryBlue w-full h-[150px] text-primaryWhite">
+    <footer className="bg-primaryBlue w-screen h-[150px] text-primaryWhite">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <img src={Logo} alt="Logo" className='h-[150px]'/>

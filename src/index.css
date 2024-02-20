@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 .max-w-\[1024px\]{
-    max-width:100% !important;
+    max-width:100vw !important;
 }
 html{
     font-family: "Lora", serif;
 }
 #lugarRecogida,#fechaRecogida,#lugarEntrega,#fechaEntrega{
     border-style:none;
+}
+body{
+    overflow-x:hidden;
 }

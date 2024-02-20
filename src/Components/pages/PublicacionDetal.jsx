@@ -22,7 +22,7 @@ const PublicacionDetal = ({publicacion}) => {
 
   return (
     <>
-  <div className='grid grid-cols-1 grid-rows-1 gap-1 md:grid-cols-2 md:max-h-[75vh] w-[95%] mx-auto'>
+  <div className='grid grid-cols-1 grid-rows-1 gap-1 md:grid-cols-2 md:max-h-[75vh] w-[90%] mx-auto'>
       <div className='row-span-1 md:row-span-2 '>
       <Card className="md:h-[100%] rounded-none bg-primaryBlue">
       
@@ -39,7 +39,7 @@ const PublicacionDetal = ({publicacion}) => {
 
 
 
-    <div className='grid grid-cols-1 grid-rows-2 gap-1 md:grid-cols-2 h-full'>
+    <div className='hidden sm:grid grid-cols-1 grid-rows-2 gap-1 md:grid-cols-2 h-full'>
 
     <Card className=" h-[100%] col-span-1 row-span-1 rounded-none">
       <Image
@@ -77,8 +77,8 @@ const PublicacionDetal = ({publicacion}) => {
    
     </div>
 
-    <div className="flex w-[95%] mx-auto justify-end flex-wrap gap-3">
-          <Button endContent={<FaPhotoVideo className='text-default-700 text-[22px]' />} className='bg-primaryGold text-primaryWhite text-[18px]' key="full" onPress={() => handleOpen("full")}>ver mas</Button>
+    <div className="flex items-center w-[90%] mx-auto mt-5 justify-end ">
+          <Button endContent={<FaPhotoVideo className='text-default-700 text-[22px]' />} className='bg-primaryGold text-primaryWhite text-[18px] ' key="full" onPress={() => handleOpen("full")}>ver mas</Button>
       </div>
       <Modal 
         size="full"
@@ -111,7 +111,7 @@ const PublicacionDetal = ({publicacion}) => {
         </ModalContent>
       </Modal>
 
-    <div className='w-[95%] mx-auto text-primaryWhite'>
+    <div className='w-[90%] mx-auto text-primaryWhite'>
       
       <h2>{id}</h2>
       <p>Marca: {marca}</p>
