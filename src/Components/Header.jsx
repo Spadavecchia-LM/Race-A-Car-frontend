@@ -32,11 +32,11 @@ const Header = () => {
  
 
        
-        <NavbarBrand>
+        <NavbarBrand onClick={() => navigate("/")}>
         <img
           src={logo}
           alt="LOGO DE LA PAGINA"
-          className="w-[150px] h-[100px]"
+          className="w-[150px] h-[100px] cursor-pointer"
         />
         <p className="text-primaryWhite hidden md:block">RACE-A-CAR</p>
       </NavbarBrand>

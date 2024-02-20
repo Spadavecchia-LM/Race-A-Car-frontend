@@ -5,9 +5,11 @@ import { GiGearStickPattern } from "react-icons/gi";
 import { TbEngine } from "react-icons/tb";
 import { GoPeople } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const PublicacionCard = ({publicacion}) => {
 
+  const navigate = useNavigate()
 
   return (
     <Card shadow="sm" className='max-w-[100%]  p-3'>
@@ -37,7 +39,7 @@ const PublicacionCard = ({publicacion}) => {
 
         </div>
     <div className='w-full flex justify-center'>
-      <Button className='bg-primaryGold my-5 text-primaryWhite w-[70%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg'>Alquilar ahora</Button>
+      <Button className='bg-primaryGold my-5 text-primaryWhite w-[70%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => navigate(`/publicacion/${publicacion.id}`)}>Alquilar ahora</Button>
     </div>
     </CardFooter>
   </Card>

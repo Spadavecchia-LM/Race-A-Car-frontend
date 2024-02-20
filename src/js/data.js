@@ -113,7 +113,10 @@ const publicaciones = [
         transmision:"manual",
         imagenes: [
             "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363564/autos/bmw%20suv/timur-khabibulin-WueuHR_O_rM-unsplash_dmrg1t.jpg"
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363564/autos/bmw%20suv/timur-khabibulin-WueuHR_O_rM-unsplash_dmrg1t.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363566/autos/bmw%20suv/jan-kopriva-blaEhjcCyV8-unsplash_zdkjak.jpg",
         ]
 
     },
@@ -129,7 +132,11 @@ const publicaciones = [
         transmision:"manual",
         imagenes: [
             "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363709/autos/cayennes%20gts/martin-katler-NW48HPXgE4U-unsplash_hgsmnv.jpg"
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363711/autos/cayennes%20gts/lalithmalhaar-gudi-ed0ic2syz0o-unsplash_uktcxl.jpg",
+
         ]
 
     },
@@ -145,7 +152,11 @@ const publicaciones = [
         transmision:"automatica",
         imagenes: [
             "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363797/autos/mc%20laren/baron-mcDJzDxqwBQ-unsplash_t9fzu7.jpg"
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363803/autos/mc%20laren/claudio-schwarz-Zv8GOTkNEXM-unsplash_lm0l1o.jpg",
+
         ]
 
     },
@@ -161,7 +172,11 @@ const publicaciones = [
         transmision:"automatica",
         imagenes: [
             "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
-            "https://res.cloudinary.com/leoms96/image/upload/v1708363954/autos/bmw%20m5/jakob-rosen--Db-eClK4vE-unsplash_djvhfn.jpg"
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
+            "https://res.cloudinary.com/leoms96/image/upload/v1708363956/autos/bmw%20m5/serjan-midili-B8pmrv_WkYU-unsplash_bszv8r.jpg",
+
         ]
 
     },
