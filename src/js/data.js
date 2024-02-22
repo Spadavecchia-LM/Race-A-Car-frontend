@@ -180,6 +180,127 @@ const publicaciones = [
         ]
 
     },
+    {
+        id:5,
+        marca: "Acura",
+        modelo: "NSX Type S",
+        anio: 2022,
+        precio: 80,
+        capacidad: 2,
+        categoria: "Sport Coupe",
+        hp:550,
+        transmision:"automatica",
+        imagenes: [
+            "https://www.wsupercars.com/wallpapers-regular/Acura/2022-Acura-NSX-Type-S-001-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Acura/2022-Acura-NSX-Type-S-003-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Acura/2022-Acura-NSX-Type-S-002-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Acura/2022-Acura-NSX-Type-S-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Acura/2022-Acura-NSX-Type-S-006-1600.jpg",
+
+        ]
+
+    },
+    {
+        id:6,
+        marca: "Bugatti",
+        modelo: "Chiron SS",
+        anio: 2022,
+        precio: 1250,
+        capacidad: 2,
+        categoria: "GT",
+        hp:1160,
+        transmision:"manual",
+        imagenes: [
+            "https://www.wsupercars.com/wallpapers-regular/Bugatti/2022-Bugatti-Chiron-Super-Sport-002-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Bugatti/2022-Bugatti-Chiron-Super-Sport-001-1600.jpg ",
+            "https://www.wsupercars.com/wallpapers-regular/Bugatti/2022-Bugatti-Chiron-Super-Sport-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Bugatti/2022-Bugatti-Chiron-Super-Sport-006-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Bugatti/2022-Bugatti-Chiron-Super-Sport-007-1600.jpg",
+
+        ]
+
+    },
+    {
+        id:7,
+        marca: "Koenigsegg",
+        modelo: "Agera RS",
+        anio: 2015,
+        precio: 2500,
+        capacidad: 2,
+        categoria: "GT",
+        hp:850,
+        transmision:"automatica",
+        imagenes: [
+            "https://www.wsupercars.com/wallpapers-regular/Koenigsegg/2015-Koenigsegg-Agera-RS-001-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Koenigsegg/2015-Koenigsegg-Agera-RS-003-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Koenigsegg/2015-Koenigsegg-Agera-RS-002-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Koenigsegg/2015-Koenigsegg-Agera-RS-004-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Koenigsegg/2015-Koenigsegg-Agera-RS-006-1600.jpg",
+
+        ]
+
+    },
+    {
+        id:8,
+        marca: "Lamborghini",
+        modelo: "Huracan Serato",
+        anio: 2024,
+        precio: 1800,
+        capacidad: 2,
+        categoria: "Sport Coupe",
+        hp:760,
+        transmision:"automatica",
+        imagenes: [
+            "https://www.wsupercars.com/wallpapers-regular/Lamborghini/2024-Lamborghini-Huracan-Sterrato-005-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Lamborghini/2024-Lamborghini-Huracan-Sterrato-006-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Lamborghini/2024-Lamborghini-Huracan-Sterrato-001-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Lamborghini/2024-Lamborghini-Huracan-Sterrato-009-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Lamborghini/2024-Lamborghini-Huracan-Sterrato-010-1600.jpg",
+
+        ]
+
+    },
+    {
+        id:9,
+        marca: "Audi",
+        modelo: "S5 Coupe",
+        anio: 2017,
+        precio: 250,
+        capacidad: 4,
+        categoria: "Sport Coupe",
+        hp:430,
+        transmision:"automatica",
+        imagenes: [
+            "https://www.wsupercars.com/wallpapers-regular/Audi/2017-Audi-S5-Coupe-001-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Audi/2017-Audi-S5-Coupe-002-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Audi/2017-Audi-S5-Coupe-003-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Audi/2017-Audi-S5-Coupe-004-1600.jpg",
+            "https://www.wsupercars.com/wallpapers-regular/Audi/2017-Audi-S5-Coupe-005-1600.jpg",
+
+        ]
+
+    },
+    {
+        id:10,
+        marca: "Ford",
+        modelo: "F-150 Raptor R",
+        anio: 2023,
+        precio: 550,
+        capacidad: 5,
+        categoria: "Pick Up",
+        hp:600,
+        transmision:"automatica",
+        imagenes: [
+            "https://www.wsupertrucks.com/wallpapers-regular/Ford/2023-Ford-F-150-Raptor-R-001-1600.jpg",
+            "https://www.wsupertrucks.com/wallpapers-regular/Ford/2023-Ford-F-150-Raptor-R-002-1600.jpg",
+            "https://www.wsupertrucks.com/wallpapers-regular/Ford/2023-Ford-F-150-Raptor-R-004-1600.jpg",
+            "https://www.wsupertrucks.com/wallpapers-regular/Ford/2023-Ford-F-150-Raptor-R-003-1600.jpg",
+            "https://www.wsupertrucks.com/wallpapers-regular/Ford/2023-Ford-F-150-Raptor-R-005-1600.jpg",
+
+        ]
+
+    },
+    
     
 ]
 
