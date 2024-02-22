@@ -20,7 +20,7 @@ const PublicacionCard = ({publicacion}) => {
 };
 
   return (
-    <Card shadow="sm" className='max-w-[100%]  p-3'>
+    <Card shadow="sm" className='max-w-[100%] p-3'>
     <CardBody className="overflow-visible p-0">
       <Image
         shadow="sm"
