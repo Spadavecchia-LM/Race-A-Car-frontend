@@ -39,7 +39,7 @@ const PublicacionCard = ({publicacion}) => {
        </div>
       
     {/* car specs */}
-        <div className='flex w-full justify-around p-5 sm:p-2 bg-[#edf0f5]  rounded-2xl '>
+        <div className='grid grid-cols-2 grid-rows-2 sm:grid-rows-1 sm:grid-cols-4  w-full gap-4 p-4 sm:p-2 bg-[#edf0f5]  rounded-2xl '>
             <span className='flex flex-col items-center'><TbEngine /> {publicacion.hp}cv</span>
             <span className='flex flex-col items-center' ><GiGearStickPattern   /> {publicacion.transmision}</span>
             <span className='flex flex-col items-center'><GoPeople/> {publicacion.capacidad} personas</span>
