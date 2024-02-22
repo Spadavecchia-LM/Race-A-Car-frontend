@@ -31,7 +31,7 @@ const PublicacionDetal = ({publicacion}) => {
       <div className='row-span-1 md:row-span-2 '>
       <Card className="md:h-[100%] rounded-none bg-primaryBlue">
       
-        <h1 ref={detailRef} className='bg-primaryGold text-primaryWhite text-[24px] sm:text[40px] md:text-[50px] text-center'>{marca} {modelo} {anio}</h1>
+        <h1  className='bg-primaryGold text-primaryWhite text-[24px] sm:text[40px] md:text-[50px] text-center'>{marca} {modelo} {anio}</h1>
     
       <Image
         
