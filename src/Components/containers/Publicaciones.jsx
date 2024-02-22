@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext, useRef } from 'react'
 import { publicaciones } from '../../js/data'
 import PublicacionCard from '../cards/PublicacionCard'
+import { GlobalContext } from '../../context/AppContext'
 
 const Publicaciones = () => {
+
+  const {dispatch} =useContext(GlobalContext)
+
+  
 
   const scrambleArray = (arr) => {
 
@@ -15,8 +20,9 @@ const Publicaciones = () => {
         elements.push(randomIndex)
       }
     }
+    return elements.map((e => {
 
-    return elements.map((e => arr[e] ))
+      return arr[e] }))
 
   }
 
@@ -29,7 +35,7 @@ const Publicaciones = () => {
         {publicacionesAleatorias.map((pub) => {
             return(
                 <div key={pub.id}>   
-                <PublicacionCard publicacion={pub}/>
+                <PublicacionCard publicacion={pub} />
                 </div>
             )
       

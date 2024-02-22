@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Card, Image, Button} from "@nextui-org/react";
 import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'flowbite-react';
 import {Modal, ModalContent,ModalBody, ModalFooter, useDisclosure} from "@nextui-org/react";
 import { FaPhotoVideo } from "react-icons/fa";
+import { GlobalContext } from '../../context/AppContext';
 
 const PublicacionDetal = ({publicacion}) => {
+
+  const {state} = useContext(GlobalContext)
+
+
 
   const {isOpen, onOpen, onClose} = useDisclosure();
   const [size, setSize] = React.useState('md')
@@ -26,7 +31,7 @@ const PublicacionDetal = ({publicacion}) => {
       <div className='row-span-1 md:row-span-2 '>
       <Card className="md:h-[100%] rounded-none bg-primaryBlue">
       
-        <h1 className='bg-primaryGold text-primaryWhite text-[24px] sm:text[40px] md:text-[50px] text-center'>{marca} {modelo} {anio}</h1>
+        <h1 ref={detailRef} className='bg-primaryGold text-primaryWhite text-[24px] sm:text[40px] md:text-[50px] text-center'>{marca} {modelo} {anio}</h1>
     
       <Image
         

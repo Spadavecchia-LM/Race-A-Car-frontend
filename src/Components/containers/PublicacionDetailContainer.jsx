@@ -8,6 +8,7 @@ const PublicacionDetailContainer = () => {
 
     const {id} = useParams()
     const navigate = useNavigate()
+    
     const publicacionFiltrada = publicaciones.find(pub => pub.id == id)
 
   return (

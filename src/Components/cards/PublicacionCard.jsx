@@ -1,15 +1,22 @@
 import { Button } from '@nextui-org/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 import { GiGearStickPattern } from "react-icons/gi";
 import { TbEngine } from "react-icons/tb";
 import { GoPeople } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
+import { GlobalContext } from '../../context/AppContext';
 
 const PublicacionCard = ({publicacion}) => {
 
+  const {state} = useContext(GlobalContext)
+
   const navigate = useNavigate()
+
+  const handleScroll = (id) => {
+    navigate("/publicacion/" + id)
+};
 
   return (
     <Card shadow="sm" className='max-w-[100%]  p-3'>
@@ -24,7 +31,7 @@ const PublicacionCard = ({publicacion}) => {
       />
     </CardBody>
 
-    <CardFooter className="text-small flex-col items-start">
+    <CardFooter className="text-small flex-col items-start" >
        <div className='py-10'>
        <h3 className='text-[20px] text-primaryBlue'>{publicacion.marca} {publicacion.modelo} {publicacion.anio}</h3>
       <p className="text-primaryBlue text-[32px] pt-5">{publicacion.precio} USD/dia</p>
@@ -39,7 +46,7 @@ const PublicacionCard = ({publicacion}) => {
 
         </div>
     <div className='w-full flex justify-center'>
-      <Button className='bg-primaryGold my-5 text-primaryWhite w-[70%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => navigate(`/publicacion/${publicacion.id}`)}>Alquilar ahora</Button>
+      <Button className='bg-primaryGold my-5 text-primaryWhite w-[70%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => handleScroll(publicacion.id)}>Alquilar ahora</Button>
     </div>
     </CardFooter>
   </Card>
