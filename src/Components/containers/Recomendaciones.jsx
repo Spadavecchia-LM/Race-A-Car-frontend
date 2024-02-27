@@ -3,7 +3,7 @@ import { publicaciones } from '../../js/data'
 import PublicacionCard from '../cards/PublicacionCard'
 import { GlobalContext } from '../../context/AppContext'
 
-const Publicaciones = () => {
+const Recomendaciones = () => {
 
   const {dispatch} =useContext(GlobalContext)
 
@@ -47,4 +47,4 @@ const Publicaciones = () => {
   )
 }
 
-export default Publicaciones
+export default Recomendaciones

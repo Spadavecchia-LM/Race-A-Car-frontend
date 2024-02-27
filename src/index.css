@@ -10,8 +10,6 @@ html{
 }
 #lugarRecogida,#fechaRecogida,#lugarEntrega,#fechaEntrega{
     border-style:none;
-
-
 }
 body{
     overflow-x:hidden;

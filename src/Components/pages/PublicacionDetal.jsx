@@ -21,7 +21,7 @@ const PublicacionDetal = ({publicacion}) => {
     }
 
   const handleScroll = () => {
-    navigate("/")
+    navigate("/publicaciones")
     window.scrollTo({left:0,top:0, behavior:"auto"})
   }
 
@@ -139,7 +139,7 @@ const PublicacionDetal = ({publicacion}) => {
       <p>Condiciones de venta: Nunc vitae magna a quam tristique vestibulum. Vivamus non purus in neque lacinia suscipit. Integer non libero in quam bibendum gravida a et justo.</p>
 
       <div className='flex flex-wrap gap-3'>
-      <Button className='bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => handleScroll()} >Volver al inicio</Button>
+      <Button className='bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => handleScroll()} >Seguir viendo</Button>
       <Button className='bg-primaryGold my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' >Proceder con el pago</Button>
 
       </div>

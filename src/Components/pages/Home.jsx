@@ -3,7 +3,7 @@ import Hero from '../utils/Hero'
 import SearchBox from '../utils/SearchBox'
 import Marcas from '../containers/Marcas'
 import Categorias from "../containers/Categorias"
-import Publicaciones from '../containers/Publicaciones'
+import Recomendaciones from '../containers/Recomendaciones'
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
     <SearchBox/>
     <Marcas/>
     <Categorias/>
-    <Publicaciones/>
+    <Recomendaciones/>
     </div>
     
   )
