@@ -3,6 +3,8 @@ import Footer from "./Components/utils/Footer"
 import Header from "./Components/utils/Header"
 import Home from "./Components/pages/Home"
 import PublicacionDetailContainer from "./Components/containers/PublicacionDetailContainer"
+import Login from "./Components/pages/Login"
+import Register from "./Components/pages/Register"
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
   <Routes>
     <Route path="/" element= {<Home/>}/>
     <Route path="/publicacion/:id" element={<PublicacionDetailContainer/>}/>
+    <Route path="/login" element={<Login/>}/>
+    <Route path="/register" element={<Register/>}/>
   </Routes>
   <Footer/>
     </>

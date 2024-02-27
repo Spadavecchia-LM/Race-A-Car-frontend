@@ -48,7 +48,7 @@ const Header = () => {
           <Button
             as={Link}
             color="primary"
-            href="#"
+            href="register"
             variant="ghost"
             className="text-primaryWhite"
           >
@@ -57,7 +57,7 @@ const Header = () => {
           <Button
             as={Link}
             color="primary"
-            href="#"
+            href="login"
             className="text-primaryWhite"
             variant="ghost"
           >
