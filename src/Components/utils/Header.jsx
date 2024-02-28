@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -9,13 +9,24 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   NavbarMenu,
+  Avatar,
+  Dropdown,
+  DropdownTrigger,
+  DropdownItem,
+  DropdownMenu,
+  
 } from "@nextui-org/react";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GlobalContext } from "../../context/AppContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const {state,dispatch} = useContext(GlobalContext)
+
+  const {userIsLogged} = state
 
   const navigate = useNavigate();
 
@@ -26,6 +37,7 @@ const Header = () => {
   }
 
   const menuItems = ["Crear cuenta", "Iniciar sesión"];
+  const menuItemsIfIsLogged = ["Mis reservas", "Lista de deseos", "Mi cuenta", "Cerrar sesión"]
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-primaryBlue w-screen justify-between h-[100px] max-w-full ">
@@ -45,24 +57,34 @@ const Header = () => {
       
      
         <div className="flex flex justify-end gap-4 w-[50vw] hidden md:flex ">
-          <Button
-            as={Link}
-            color="primary"
-            href="#"
-            variant="ghost"
-            className="text-primaryWhite"
-          >
-            Crear cuenta
-          </Button>
-          <Button
-            as={Link}
-            color="primary"
-            href="#"
-            className="text-primaryWhite"
-            variant="ghost"
-          >
-            Iniciar sesión
-          </Button>
+          {!userIsLogged ? 
+           <Dropdown>
+           <DropdownTrigger>
+            <Avatar size="lg"/>
+           </DropdownTrigger>
+           <DropdownMenu aria-label="Static Actions">
+             <DropdownItem key="iniciar sesion" onClick={() => dispatch({type:"LOGIN"})}>Iniciar sesión</DropdownItem>
+             <DropdownItem key="registro">Registro</DropdownItem>
+           </DropdownMenu>
+         </Dropdown>
+         :
+         <Dropdown>
+         <DropdownTrigger>
+          <Avatar size="lg" name="A"/>
+         </DropdownTrigger>
+         <DropdownMenu aria-label="Static Actions">
+           <DropdownItem key="reservas">Mis reservas</DropdownItem>
+           <DropdownItem key="deseos">Lista de deseos</DropdownItem>
+           <DropdownItem key="deseos">Mi cuenta</DropdownItem>
+           <DropdownItem color="danger" key="deseos" onClick={() => dispatch({type:"LOGOUT"})}>Cerrar sesión</DropdownItem>
+
+
+         </DropdownMenu>
+       </Dropdown>
+        
+        }
+       
+
         </div>
 
        
@@ -77,7 +99,9 @@ const Header = () => {
    
 
       <NavbarMenu className="pt-10 bg-primaryWhite">
-        {menuItems.map((item, index) => (
+
+        { !userIsLogged ? 
+         menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={index === menuItems.length - 1 ? "text-primary" : "text-secondaryBlue"}
@@ -87,7 +111,20 @@ const Header = () => {
               {item}
             </Link>
           </NavbarMenuItem>
-        ))}
+        ))
+          :
+          menuItemsIfIsLogged.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                className={index === menuItems.length - 1 ? "text-danger" : "text-secondaryBlue"}
+                href="#"
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))
+        }
       </NavbarMenu>
     </Navbar>
   );

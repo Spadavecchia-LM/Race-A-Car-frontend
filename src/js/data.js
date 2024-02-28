@@ -300,7 +300,7 @@ const publicaciones = [
         ]
 
     },
-    
+  
     
 ]
 

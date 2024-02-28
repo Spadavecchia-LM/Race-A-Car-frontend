@@ -7,12 +7,14 @@ export const GlobalContext = createContext()
 const AppContext = ({children}) => {
 
     const initialValue = {
-        detailRef:null
+        userIsLogged: false
     }
     const reducer = (state,action) => {
         switch(action.type){
-            case "SET_REF":
-                return {...state, detailRef: action.payload}
+            case "LOGIN":
+                return {...state, userIsLogged: true}
+            case "LOGOUT":
+                return {...state, userIsLogged:false}
         }
     }
     const [state,dispatch] = useReducer(reducer, initialValue)
