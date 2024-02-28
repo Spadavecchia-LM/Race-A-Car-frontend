@@ -1,13 +1,92 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/AppContext";
+import { Spinner } from "@nextui-org/spinner";
+import Swal from "sweetalert2";
+import { Input } from "@nextui-org/input";
+
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleScroll = () => {
-    navigate("/");
-    window.scrollTo({ left: 0, top: 0, behavior: "auto" });
-  };
+  const {state, dispatch} = useContext(GlobalContext)
+
+  const [user, setUser] = useState({
+    username:"",
+    password:""
+  })
+
+  const [isLogginIn, setIsLogginIn] = useState(false)
+
+  const [isInvalid, setIsInvalid] = useState(false)
+
+  const handleInputOnChange = (e) => {
+    const {name, value} = e.target
+
+    setUser({...user, [name]:value})
+  }
+
+  const displayAlert = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Iniciaste sesión correctamente",
+      showConfirmButton: true,
+      timer: 3000
+    });
+    navigate("/")
+  }
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    setIsLogginIn(true)
+
+
+    try{
+      const response = await fetch("http://localhost:8085/auth/login", {
+        method:"POST",
+        body: JSON.stringify(user),
+        headers:{
+          "Content-Type": "application/json"
+        }
+      })
+
+
+      if(response.ok){
+        const {token} = await response.json()
+
+        console.log(token)
+        localStorage.setItem("Authorization", token)
+        //setea userIsLogged a true
+        dispatch({type:"LOGIN"})
+
+        //guarda el mail del usuario en el context para poder hacer peticiones
+        dispatch({type:"SET_USER_EMAIL", payload: user.username})
+
+        document.querySelector("#loginForm").reset()
+
+        setUser({
+          username:"",
+          password:""
+        })
+        displayAlert()
+        
+      }else{
+        Swal.fire({
+          icon:"error",
+          title:"credenciales invalidas intente nuevamente",
+          showConfirmButton:true
+        })
+        setIsInvalid(true)
+      }
+
+    }catch(err){
+      console.log(err)
+    }finally{
+      setIsLogginIn(false)
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-secondaryBlue text-primaryWhite">
@@ -19,7 +98,7 @@ const Login = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit} id="loginForm">
           <div>
             <label
               htmlFor="email"
@@ -28,13 +107,17 @@ const Login = () => {
               Correo electrónico
             </label>
             <div className="mt-2">
-              <input
+              <Input
                 id="email"
+                variant="flat"
+                isInvalid={isInvalid}
                 name="username"
                 type="email"
                 autoComplete="email"
                 required
-                className="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-primaryGreen placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
+                onChange={handleInputOnChange}
+                errorMessage={isInvalid && "credenciales invalidas"}
+
               />
             </div>
           </div>
@@ -49,13 +132,16 @@ const Login = () => {
               </label>
             </div>
             <div className="mt-2">
-              <input
+              <Input
                 id="password"
+                variant="flat"
+                isInvalid={isInvalid}
                 name="password"
                 type="password"
                 autoComplete="current-password"
+                errorMessage={isInvalid && "credenciales invalidas"}
                 required
-                className="pl-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-primaryGreen placeholder:text-gray-400 focus:ring-2 focus:ring-inset  sm:text-sm sm:leading-6"
+                onChange={handleInputOnChange}
               />
             </div>
           </div>
@@ -63,10 +149,9 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              onClick={() => handleScroll()}
-              className="flex w-full justify-center rounded-md bg-primaryBlue px-3 py-1.5 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-secondaryBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex w-full justify-center rounded-md bg-primaryBlue px-3 py-1.5 text-sm hover:bg-primaryGold font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-secondaryBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              {"Iniciar sesión"}
+              {isLogginIn ? <Spinner/> : "Iniciar sesíon"}
             </button>
           </div>
         </form>

@@ -19,7 +19,7 @@ input:focus{
     box-shadow:none !important;
 }
 
-Input:focus{
-    box-shadow:none !important;
+input{
+    border-style:none;
 }
  
