@@ -57,11 +57,11 @@ const Register = () => {
   }
 
 
-  const emailIsInvalid = !validateEmail(payload.email) || payload.email !== "";
-  const nombreIsInvalid = !validateNombre(payload.nombre) || payload.nombre !== ""
-  const apellidoIsInvalid = !validateApellido(payload.apellido) || payload.apellido !== ""
-  const telefonoIsInvalid = !validateTelefono(payload.telefono) || payload.telefono !== ""
-  const documentoIsInvalid = !validateDocumento(payload.documento) || payload.documento !== ""
+  const emailIsInvalid = !validateEmail(payload.email) && payload.email !== "";
+  const nombreIsInvalid = !validateNombre(payload.nombre) && payload.nombre !== ""
+  const apellidoIsInvalid = !validateApellido(payload.apellido) && payload.apellido !== ""
+  const telefonoIsInvalid = !validateTelefono(payload.telefono) && payload.telefono !== ""
+  const documentoIsInvalid = !validateDocumento(payload.documento) && payload.documento !== ""
   const contraseñaIsInvalid = !validateContraseña()
 
 
@@ -84,14 +84,11 @@ const Register = () => {
         const response = await fetch("http://localhost:8085/auth/register", settings)
 
         if(response.ok){
-          const {token} = await response.json()
-
-          console.log(token)
 
           Swal.fire({
             icon:"success",
             title:"Registro exitoso!",
-            text:"ahora puedes iniciar sesión y acceder a todos tus datos"
+            text:"Te enviamos un mail con tus datos, ya podes iniciar sesión"
           })
 
           setPayload({
