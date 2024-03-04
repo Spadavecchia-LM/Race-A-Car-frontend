@@ -25,7 +25,7 @@ const PublicacionDetal = ({publicacion}) => {
     window.scrollTo({left:0,top:0, behavior:"auto"})
   }
 
-  const {id,marca, modelo, anio, precio, capacidad, categoria, hp, transmision, imagenes} = publicacion
+  const {id,marca, modelo, anio, valor, capacidad, categoria, caballosDeFuerza, tipoDeCaja, images} = publicacion
 
   const navigate = useNavigate()
 
@@ -41,7 +41,7 @@ const PublicacionDetal = ({publicacion}) => {
         
         alt="Card background"
         className="z-0 w-full h-full object-cover rounded-none"
-        src={imagenes[1]}
+        src={images[1]}
       />
     </Card>
       </div>
@@ -55,7 +55,7 @@ const PublicacionDetal = ({publicacion}) => {
         removeWrapper
         alt="Card background"
         className="z-0 w-full h-full object-cover rounded-none"
-        src={imagenes[0]}
+        src={images[0]}
       />
     </Card>
     <Card className=" h-[100%] col-span-1 row-span-1 rounded-none">
@@ -63,7 +63,7 @@ const PublicacionDetal = ({publicacion}) => {
         removeWrapper
         alt="Card background"
         className="z-0 w-full h-full object-cover rounded-none"
-        src={imagenes[2]}
+        src={images[2]}
       />
     </Card>
     <Card className=" h-[100%] col-span-1 row-span-1 rounded-none">
@@ -71,7 +71,7 @@ const PublicacionDetal = ({publicacion}) => {
         removeWrapper
         alt="Card background"
         className="z-0 w-full h-full object-cover rounded-none "
-        src={imagenes[3]}
+        src={images[3]}
       />
     </Card>
     <Card className=" h-[100%] col-span-1 row-span-1 rounded-none">
@@ -79,7 +79,7 @@ const PublicacionDetal = ({publicacion}) => {
         removeWrapper
         alt="Card background"
         className="z-0 w-full h-full object-cover rounded-none"
-        src={imagenes[4]}
+        src={images[4]}
       />
     </Card>
     </div>
@@ -101,9 +101,9 @@ const PublicacionDetal = ({publicacion}) => {
               <ModalBody>
               <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
       <Carousel className='h-screen'>
-        {imagenes.map((imagen) => {
+        {images.map((imagen, i) => {
             return(
-                <img src={imagen} alt="foto del auto" className='object-contain h-[100%] ' />
+                <img src={imagen} alt="foto del auto" className='object-contain h-[100%] ' key={i} />
             )
         } )}
  
@@ -126,11 +126,11 @@ const PublicacionDetal = ({publicacion}) => {
       <p>Marca: {marca}</p>
       <p>Modelo: {modelo}</p>
       <p>Año: {anio}</p>
-      <p>Precio: ${precio}</p>
+      <p>Precio: ${valor}</p>
       <p>Capacidad: {capacidad} personas</p>
-      <p>Categoría: {categoria}</p>
-      <p>HP: {hp}</p>
-      <p>Transmisión: {transmision}</p>
+      <p>Categoría: {categoria.categoria}</p>
+      <p>HP: {caballosDeFuerza}</p>
+      <p>Transmisión: {tipoDeCaja}</p>
 
       <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula lectus id urna dapibus, a commodo nunc hendrerit. Nullam vestibulum, justo nec feugiat facilisis, justo elit malesuada justo.</p>
       
