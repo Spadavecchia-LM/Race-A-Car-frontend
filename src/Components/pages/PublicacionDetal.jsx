@@ -26,10 +26,7 @@ import { TiSpanner } from "react-icons/ti";
 
 const PublicacionDetal = ({ publicacion }) => {
   const { state } = useContext(GlobalContext);
-import { GlobalContext } from "../../context/AppContext";
-
-const PublicacionDetal = ({ publicacion }) => {
-  const { state } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState("md");
@@ -56,8 +53,6 @@ const PublicacionDetal = ({ publicacion }) => {
     transmision,
     imagenes,
   } = publicacion;
-
-  const navigate = useNavigate();
 
   return (
     <>
@@ -137,6 +132,7 @@ const PublicacionDetal = ({ publicacion }) => {
                     {imagenes.map((imagen) => {
                       return (
                         <img
+                          key={imagen}
                           src={imagen}
                           alt="foto del auto"
                           className="object-contain h-[100%] "
@@ -209,68 +205,30 @@ const PublicacionDetal = ({ publicacion }) => {
           </div>
         </div>
         <div className="w-[90%] h-[2px] bg-white my-10 mt-20"></div>
-        <div className='text-primaryWhite w-full flex justify-center mt-8'>
-    <h1 className='text-2x1 font-bold'>Extras del vehículo</h1>
-  </div>
-  <div className='flex flex-col items-center w-full mt-20'>
-  <div className='mx-auto w-[90%]'>
-    <div className='text-primaryWhite grid grid-cols-2 gap-5'>
-      <div className='list-disc list-inside flex flex-col justify-center items-center'>
-      <ul className='list-disc list-inside'>
-        <li>Techo solar panorámico</li>
-        <li className="mt-10">Cámara de retroceso</li>
-        <li className="mt-10">Sistema de frenos ABS</li>
-      </ul>
-      </div>
-      <div className='list-disc list-inside flex flex-col justify-center items-center'>
-      <ul className='list-disc list-inside'>
-        <li>Llantas de aleación</li>
-        <li className="mt-10">Asientos calefaccionados</li>
-        <li className="mt-10">Sistema de navegación GPS</li>
-      </ul>
-      <div className="w-[90%] mx-auto text-primaryWhite">
-        <div className='w-[90%] mx-auto mt-5 text-primaryWhite flex flex-col md:flex-row gap-10'>
-          <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-4">Detalles del Vehículo</h2>
-          <ul className="list-disc pl-5">
-            <li>
-              <strong>Marca:</strong> {marca}
-            </li>
-            <li>
-              <strong>Modelo:</strong> {modelo}
-            </li>
-            <li>
-              <strong>Año:</strong> {anio}
-            </li>
-            <li>
-              <strong>Precio:</strong> ${precio}
-            </li>
-            <li>
-              <strong>Capacidad:</strong> {capacidad} personas
-            </li>
-            <li>
-              <strong>Categoría:</strong> {categoria}
-            </li>
-            <li>
-              <strong>HP:</strong> {hp}
-            </li>
-            <li>
-              <strong>Transmisión:</strong> {transmision}
-            </li>
-          </ul>
-          </div>
-          <div className="flex-1">
-          <p className="mb-4">
-            <strong>Descripción:</strong> Lorem ipsum dolor sit amet...
-          </p>
-          <p className="mb-4">
-            <strong>Características adicionales:</strong> Sed eu velit vitae...
-          </p>
-          <p>
-            <strong>Condiciones de venta:</strong> Nunc vitae magna a quam...
-          </p>
+        <div className="text-primaryWhite w-full flex justify-center mt-8">
+          <h1 className="text-2xl font-bold">Extras del vehículo</h1>
+        </div>
+        <div className="flex flex-col items-center w-full mt-20">
+          <div className="mx-auto w-[90%]">
+            <div className="text-primaryWhite grid grid-cols-2 gap-5">
+              <div className="list-disc list-inside flex flex-col justify-start items-start">
+                <ul className="list-disc list-inside">
+                  <li>Techo solar panorámico</li>
+                  <li className="mt-10">Cámara de retroceso</li>
+                  <li className="mt-10">Sistema de frenos ABS</li>
+                </ul>
+              </div>
+              <div className="list-disc list-inside flex flex-col justify-start items-start">
+                <ul className="list-disc list-inside">
+                  <li>Llantas de aleación</li>
+                  <li className="mt-10">Asientos calefaccionados</li>
+                  <li className="mt-10">Sistema de navegación GPS</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
+        <div className="w-[90%] h-[2px] bg-white my-10 mt-20"></div>
         <div className="flex flex-wrap gap-3">
           <Button
             className="bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]"
@@ -288,29 +246,6 @@ const PublicacionDetal = ({ publicacion }) => {
             Proceder con el pago
           </Button>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div className="w-[90%] h-[2px] bg-white my-10 mt-20"></div>
-</div>
-
-      <div className="flex flex-wrap gap-3">
-        <Button
-          className="bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]"
-          size="lg"
-          radius="lg"
-          onClick={() => handleScroll()}
-        >
-          Seguir viendo
-        </Button>
-        <Button
-          className="bg-primaryGold my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]"
-          size="lg"
-          radius="lg"
-        >
-          Proceder con el pago
-        </Button>
       </div>
     </>
   );
