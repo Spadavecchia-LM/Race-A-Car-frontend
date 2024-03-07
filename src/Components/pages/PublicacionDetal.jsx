@@ -26,6 +26,10 @@ import { TiSpanner } from "react-icons/ti";
 
 const PublicacionDetal = ({ publicacion }) => {
   const { state } = useContext(GlobalContext);
+import { GlobalContext } from "../../context/AppContext";
+
+const PublicacionDetal = ({ publicacion }) => {
+  const { state } = useContext(GlobalContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState("md");
@@ -224,6 +228,66 @@ const PublicacionDetal = ({ publicacion }) => {
         <li className="mt-10">Asientos calefaccionados</li>
         <li className="mt-10">Sistema de navegación GPS</li>
       </ul>
+      <div className="w-[90%] mx-auto text-primaryWhite">
+        <div className='w-[90%] mx-auto mt-5 text-primaryWhite flex flex-col md:flex-row gap-10'>
+          <div className="flex-1">
+          <h2 className="text-2xl font-bold mb-4">Detalles del Vehículo</h2>
+          <ul className="list-disc pl-5">
+            <li>
+              <strong>Marca:</strong> {marca}
+            </li>
+            <li>
+              <strong>Modelo:</strong> {modelo}
+            </li>
+            <li>
+              <strong>Año:</strong> {anio}
+            </li>
+            <li>
+              <strong>Precio:</strong> ${precio}
+            </li>
+            <li>
+              <strong>Capacidad:</strong> {capacidad} personas
+            </li>
+            <li>
+              <strong>Categoría:</strong> {categoria}
+            </li>
+            <li>
+              <strong>HP:</strong> {hp}
+            </li>
+            <li>
+              <strong>Transmisión:</strong> {transmision}
+            </li>
+          </ul>
+          </div>
+          <div className="flex-1">
+          <p className="mb-4">
+            <strong>Descripción:</strong> Lorem ipsum dolor sit amet...
+          </p>
+          <p className="mb-4">
+            <strong>Características adicionales:</strong> Sed eu velit vitae...
+          </p>
+          <p>
+            <strong>Condiciones de venta:</strong> Nunc vitae magna a quam...
+          </p>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <Button
+            className="bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]"
+            size="lg"
+            radius="lg"
+            onClick={() => handleScroll()}
+          >
+            Seguir viendo
+          </Button>
+          <Button
+            className="bg-primaryGold my-5 mx-auto text-primaryWhite w-[80%] sm:w-[30%] text-[18px] px-[24px] py-[12px]"
+            size="lg"
+            radius="lg"
+          >
+            Proceder con el pago
+          </Button>
+        </div>
       </div>
     </div>
   </div>

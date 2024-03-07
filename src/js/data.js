@@ -44,7 +44,7 @@ const marcas = [
         imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310343/marcas/Kia_svg_b2gz5c.png"
     },
     {
-        marca:"AUDI",
+        marca:"Audi",
         imagen:"https://res.cloudinary.com/leoms96/image/upload/v1708310342/marcas/Audi_svg_kotuqc.png"
     },
 ]

@@ -147,7 +147,7 @@ const Register = () => {
             <Input
             size="lg"
               type="text"
-              label="nombre"
+              label="Nombre"
               labelPlacement="outside"
               id="firstName"
               required
@@ -165,7 +165,7 @@ const Register = () => {
           <div>
         
             <Input
-            label="apellido"
+            label="Apellido"
             size="lg"
               type="text"
               id="lastName"
@@ -184,7 +184,7 @@ const Register = () => {
          
             <Input
           size="lg"
-            label="correo electrónico"
+            label="Correo electrónico"
               type="email"
               labelPlacement="outside"
               name="email"
@@ -203,7 +203,7 @@ const Register = () => {
      
             <Input
           size="lg"
-            label="telefono"
+            label="Teléfono"
               type="text"
               labelPlacement="outside"
               name="telefono"
@@ -223,7 +223,7 @@ const Register = () => {
             <Input
           size="lg"
               name="documento"
-              label="documento"
+              label="Documento"
               labelPlacement="outside"
               type="text"
               id="documento"
@@ -240,7 +240,7 @@ const Register = () => {
           
             <Input
             size="lg"
-              label="contraseña"
+              label="Contraseña"
               labelPlacement="outside"
               id="password"
               onChange={handleInputChange}
@@ -267,7 +267,7 @@ const Register = () => {
            
             <Input
             size="lg"
-            label="repetir contraseña"
+            label="Repetir contraseña"
               id="confirmarContraseña"
               labelPlacement="outside"
               onChange={handleRepetirContraseñaOnChange}
