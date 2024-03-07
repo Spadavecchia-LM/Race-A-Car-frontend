@@ -56,7 +56,7 @@ const Login = () => {
       if(response.ok){
         const {token} = await response.json()
 
-        console.log(token)
+     
         localStorage.setItem("Authorization", token)
         //setea userIsLogged a true
         dispatch({type:"LOGIN"})

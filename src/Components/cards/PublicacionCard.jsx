@@ -25,7 +25,7 @@ const PublicacionCard = ({publicacion}) => {
     <>
     {autos.length > 0 ?
     
-      <Card shadow="sm" className='p-2 min-h-full'>
+      <Card shadow="sm" className='p-2  min-h-full '>
     <CardBody className="overflow-visible p-0">
       <Image
         shadow="sm"
@@ -40,15 +40,17 @@ const PublicacionCard = ({publicacion}) => {
     <CardFooter className="text-small flex-col items-start min-h-[200px]" >
        <div className='py-10 '>
        <h3 className='text-[20px] text-primaryBlue'>{publicacion.marca} {publicacion.modelo} {publicacion.anio}</h3>
-      <p className="text-primaryBlue text-[24px] lg:text-[32px] pt-5">{publicacion.valor} USD/dia</p>
+      <p className="text-primaryBlue text-[20px] md:text-[24px]  lg:text-[28px] pt-5">{publicacion.valor} USD/dia</p>
+    
       <Chip className='mt-4 bg-primaryBlue text-primaryWhite text-[12px]'>{publicacion.categoria.categoria}</Chip>
+    
        </div>
       
     {/* car specs */}
-        <div className='grid place-items-center grid-cols-2 grid-rows-2 xl:grid-rows-1 xl:grid-cols-4 w-full gap-4 p-5 sm:p-2 bg-[#edf0f5]  rounded-2xl min-h-[80px]'>
+        <div className='grid place-items-center grid-cols-2 grid-rows-2 xl:grid-rows-1 xl:grid-cols-4  w-full gap-2  p-3 sm:p-2 bg-[#edf0f5]  rounded-2xl min-h-[80px]'>
             <span className='flex flex-col items-center text-[12px]'><TbEngine /> {publicacion.caballosDeFuerza}cv</span>
             <span className='flex flex-col items-center text-[12px]' ><GiGearStickPattern   /> {publicacion.tipoDeCaja}</span>
-            <span className='flex flex-col items-center text-[12px]'><GoPeople/> {publicacion.capacidad} personas</span>
+            <span className='flex flex-col items-center text-[12px]'><GoPeople/> {publicacion.capacidad}</span>
             <span className='flex flex-col items-center text-[12px] text-center'><BsFillFuelPumpFill /> {publicacion.combustion} </span>
 
         </div>

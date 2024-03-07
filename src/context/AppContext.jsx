@@ -10,7 +10,9 @@ const AppContext = ({children}) => {
         userIsLogged: false,
         userEmail: null,
         user: null,
-        autos:[]
+        autos:[],
+        autosFiltrados: null
+        
     }
     const reducer = (state,action) => {
         switch(action.type){
@@ -24,6 +26,9 @@ const AppContext = ({children}) => {
                 return {...state, userEmail: action.payload}
             case "GET_AUTOS":
                 return {...state, autos: action.payload}
+            case "SET_FILTERED_AUTOS":
+                return {...state, autosFiltrados:action.payload}
+            
         }
     }
 
@@ -34,6 +39,8 @@ const AppContext = ({children}) => {
     const [state,dispatch] = useReducer(reducer, initialValue)
 
     const getAutos = async () => {
+
+     
 
         try{
             const response = await fetch("http://localhost:8085/autos/disponibles")

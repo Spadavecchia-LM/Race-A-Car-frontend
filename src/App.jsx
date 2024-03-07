@@ -31,7 +31,9 @@ function App() {
    <Footer/>
    </>
    :
-   <Spinner/>
+   <div className="h-screen w-screen grid place-items-center">
+     <Spinner label="cargando..." />
+   </div>
 }
  
     </>
