@@ -56,7 +56,7 @@ const Login = () => {
       if(response.ok){
         const {token} = await response.json()
 
-        console.log(token)
+     
         localStorage.setItem("Authorization", token)
         //setea userIsLogged a true
         dispatch({type:"LOGIN"})
@@ -149,7 +149,7 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-large bg-primaryBlue px-3 py-1.5 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-primaryGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="flex w-full justify-center rounded-md bg-primaryBlue px-3 py-1.5 text-sm hover:bg-primaryGold font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-secondaryBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               {isLogginIn ? <Spinner/> : "Iniciar sesíon"}
             </button>

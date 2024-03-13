@@ -9,7 +9,10 @@ const AppContext = ({children}) => {
     const initialValue = {
         userIsLogged: false,
         userEmail: null,
-        user: null
+        user: null,
+        autos:[],
+        autosFiltrados: null
+        
     }
     const reducer = (state,action) => {
         switch(action.type){
@@ -21,6 +24,11 @@ const AppContext = ({children}) => {
                 return {...state, user: action.payload}
             case "SET_USER_EMAIL":
                 return {...state, userEmail: action.payload}
+            case "GET_AUTOS":
+                return {...state, autos: action.payload}
+            case "SET_FILTERED_AUTOS":
+                return {...state, autosFiltrados:action.payload}
+            
         }
     }
 
@@ -29,6 +37,25 @@ const AppContext = ({children}) => {
  
 
     const [state,dispatch] = useReducer(reducer, initialValue)
+
+    const getAutos = async () => {
+
+     
+
+        try{
+            const response = await fetch("http://localhost:8085/autos/disponibles")
+
+            if(response.ok){
+                const data = await response.json()
+                dispatch({type:"GET_AUTOS", payload: data})
+            }
+            
+        }catch(err){
+            console.log(err)
+        }
+
+
+    }
 
     const getUser = async (email) => {
         try{
@@ -59,6 +86,12 @@ const AppContext = ({children}) => {
         }
        
     },[state.userIsLogged, state.userEmail])
+
+
+    
+    useEffect(() => {
+        getAutos()
+    },[])
 
     console.log(state)
      

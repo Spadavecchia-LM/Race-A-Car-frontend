@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import PublicacionDetal from '../pages/PublicacionDetal'
 import {publicaciones} from "../../js/data.js"
 import { FaArrowLeft } from "react-icons/fa6";
+import { GlobalContext } from '../../context/AppContext.jsx';
 
 const PublicacionDetailContainer = () => {
+
+  const {state} = useContext(GlobalContext)
+
+  const {autos} = state
 
     const {id} = useParams()
     const navigate = useNavigate()
     
-    const publicacionFiltrada = publicaciones.find(pub => pub.id == id)
+    const publicacionFiltrada = autos.find(pub => pub.id == id)
 
   return (
     <div className='w-[100vw] bg-secondaryBlue'>
