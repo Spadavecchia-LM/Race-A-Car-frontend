@@ -8,17 +8,38 @@ import { BiCategory } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../context/AppContext';
 import { BsFillFuelPumpFill } from "react-icons/bs";
+import { CiHeart } from "react-icons/ci";
+import Swal from 'sweetalert2';
 
 const PublicacionCard = ({publicacion}) => {
 
-  const {state} = useContext(GlobalContext)
+  const {state,dispatch} = useContext(GlobalContext)
   const {autos} = state
 
   const navigate = useNavigate()
 
   const handleScroll = (id) => {
     navigate("/publicacion/" + id)
-    window.scrollTo({top:0, left:0, behavior:"smooth"})
+    window.scrollTo({top:0, left:0, behavior:"instant"})
+};
+const addToFav = () => 
+{
+  if(state.userIsLogged){
+    if (!isInFavs(publicacion.id)) {
+      dispatch({ type: "ADD_FAV", payload: publicacion });
+      localStorage.setItem("favoritos", JSON.stringify([...state.favoritos, publicacion]));
+      Swal.fire({
+        title:"se agrego a favoritos"
+      })
+    }
+  }else{
+    Swal.fire("debes iniciar sesion para poder agregar a favoritos")
+  }
+};
+
+
+const isInFavs = (id) => {
+  return state.favoritos.some((user) => user.id == id);
 };
 
   return (
@@ -54,8 +75,9 @@ const PublicacionCard = ({publicacion}) => {
             <span className='flex flex-col items-center text-[12px] text-center'><BsFillFuelPumpFill /> {publicacion.combustion} </span>
 
         </div>
-    <div className='w-full flex justify-center'>
+    <div className='w-full flex items-center justify-center gap-5'>
       <Button className='bg-primaryGold my-5 text-primaryWhite w-[70%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => handleScroll(publicacion.id)}>Alquilar ahora</Button>
+      {!isInFavs(publicacion.id) && <CiHeart onClick={addToFav} className='text-[32px]  cursor-pointer hover:text-danger '  />} 
     </div>
     </CardFooter>
   </Card>

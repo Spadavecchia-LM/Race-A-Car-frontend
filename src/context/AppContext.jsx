@@ -11,15 +11,17 @@ const AppContext = ({children}) => {
         userEmail: null,
         user: null,
         autos:[],
-        autosFiltrados: null
-        
+        autosFiltrados: null,
+        autosEntreFechas: [],
+        favoritos: []
     }
     const reducer = (state,action) => {
         switch(action.type){
             case "LOGIN":
                 return {...state, userIsLogged: true}
             case "LOGOUT":
-                return {...state, userIsLogged:false, userEmail:null, user:null}
+                localStorage.removeItem("favoritos")
+                return {...state, userIsLogged:false, userEmail:null, user:null, favoritos:[]}
             case "SET_USER":
                 return {...state, user: action.payload}
             case "SET_USER_EMAIL":
@@ -28,13 +30,22 @@ const AppContext = ({children}) => {
                 return {...state, autos: action.payload}
             case "SET_FILTERED_AUTOS":
                 return {...state, autosFiltrados:action.payload}
+            case "SET_AUTOSENTREFECHAS":
+                return {...state, autosEntreFechas:action.payload}
+            case "ADD_FAV":
+                return { ...state, favoritos: [...state.favoritos, action.payload] };
+            case "GET_FAVS":
+                return { ...state, favoritos: action.payload };
+            case "ELIMINAR_FAV":
+                return {
+                      ...state,
+                      favoritos: state.favoritos.filter((fav) => fav.id !== action.payload),
+                    };
+                }
+            
             
         }
-    }
 
-
-
- 
 
     const [state,dispatch] = useReducer(reducer, initialValue)
 
