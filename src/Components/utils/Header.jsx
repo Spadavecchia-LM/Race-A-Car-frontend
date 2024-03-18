@@ -104,7 +104,7 @@ const Header = () => {
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
               <DropdownItem key="reservas">Mis reservas</DropdownItem>
-              <DropdownItem key="deseos">Favoritos</DropdownItem>
+              <DropdownItem key="deseos" onClick={() => navigate("/user/favoritos", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Favoritos</DropdownItem>
               <DropdownItem key="cuenta">Mi cuenta</DropdownItem>
               <DropdownItem color="danger" key="logout" onClick={logout}>
                 Cerrar sesión

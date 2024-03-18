@@ -9,6 +9,8 @@ import Register from "./Components/pages/Register"
 import { useContext } from "react"
 import { GlobalContext } from "./context/AppContext"
 import { Spinner } from "@nextui-org/react"
+import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFechas"
+import Favoritos from "./Components/pages/Favoritos"
 
 function App() {
 
@@ -27,6 +29,8 @@ function App() {
        <Route path="/publicaciones" element={<Publicaciones/>}/>
        <Route path="/login" element={<Login/>}/>
        <Route path="/register" element={<Register/>}/>
+       <Route path="/publicaciones/porfecha" element={<PublicacionesEntreFechas/>}/>
+       <Route path="/user/favoritos" element={<Favoritos/>} />
    </Routes>
    <Footer/>
    </>

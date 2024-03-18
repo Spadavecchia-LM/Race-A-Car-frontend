@@ -30,8 +30,8 @@ const Categorias = () => {
                 )
             })}
         </div>
-        <div className='flex justify-center mt-10 md:justify-end'>
-            <Button size='lg' endContent={<FaArrowRight/>} onClick={handleScrollOnNavigate}>Ver todas las publicaciones</Button>
+        <div className='flex justify-center mt-20 '>
+            <Button size='lg' className='bg-primaryGold text-primaryWhite text-[24px]'  onClick={handleScrollOnNavigate}>Ver todas las publicaciones</Button>
         </div>
     </div>
     </>
