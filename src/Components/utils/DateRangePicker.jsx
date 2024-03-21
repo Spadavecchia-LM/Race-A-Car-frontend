@@ -9,22 +9,6 @@ const DateRangePicker  = ({ disabledDates }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-  function diferenciaEnDias(fecha1, fecha2) {
-    // Convertir las fechas a milisegundos
-    const fecha1ms = fecha1.getTime();
-    const fecha2ms = fecha2.getTime();
-  
-    // Calcular la diferencia en milisegundos
-    const diferenciaMs = Math.abs(fecha2ms - fecha1ms);
-  
-    // Convertir la diferencia de milisegundos a días
-    const dias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
-  
-    return dias;
-  }
-
-
-
   return (
     <>
 
@@ -64,7 +48,6 @@ const DateRangePicker  = ({ disabledDates }) => {
       excludeDates={disabledDates}
     />
       </div>
-      <h3 className="text-primaryWhite">{diferenciaEnDias(endDate,startDate) + 1} dias seleccionados</h3>
   </div>
 
   

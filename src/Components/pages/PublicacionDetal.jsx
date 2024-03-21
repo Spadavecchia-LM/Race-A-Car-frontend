@@ -286,7 +286,6 @@ const PublicacionDetal = ({ publicacion }) => {
         </h3>
         <div className="flex w-full justify-center gap-4">
                     <DateRangePicker disabledDates={disabledDates}/>
-
         </div>
       </div>
       }

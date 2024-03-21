@@ -132,175 +132,185 @@ const Register = () => {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div className="flex min-h-screen w-screen flex-col bg-secondaryBlue text-primaryWhite">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-primaryWhite">
-          RACE-A-CAR
-        </h2>
-        <p className="text-center">Registro</p>
-      </div>
-
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form onSubmit={handleSubmit} className=" flex flex-col gap-3" id="registerForm">
-          <div>
-         
-            <Input
+    <div className="flex items-center min-h-screen w-full pt-5 flex-col bg-[url('./assets/porscheRegister.jpg')] bg-cover">
+   
+    <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-5 w-full w-full max-w-screen mx-auto"
+        id="registerForm"
+      >
+        <div>
+          <Input
             size="lg"
-              type="text"
-              label="nombre"
-              labelPlacement="outside"
-              id="firstName"
-              required
-              className="border-none  sm:w-full bg-transparent"
-              onChange={handleInputChange}
-              variant="flat"
-              name="nombre"
-              isInvalid={nombreIsInvalid}
-              color={nombreIsInvalid ? "danger" : "success"}
-              errorMessage={nombreIsInvalid && "minimo 4 caracteres y solo letras"}
-             
-             
-            />
-          </div>
-          <div>
-        
-            <Input
-            label="apellido"
+            type="text"
+            label="Nombre"
+            labelPlacement="outside"
+            id="firstName"
+            required
+            className="border-none sm:w-full text-secondaryBlue"
+            style={{ width: '100%' }}
+            onChange={handleInputChange}
+            variant="flat"
+            name="nombre"
+            isInvalid={nombreIsInvalid}
+            color={nombreIsInvalid ? "danger" : "primary"}
+            errorMessage={
+              nombreIsInvalid && "minimo 4 caracteres y solo letras"
+            }
+          />
+        </div>
+        <div>
+          <Input
+            label="Apellido"
             size="lg"
-              type="text"
-              id="lastName"
-              labelPlacement="outside"
-              name="apellido"
-              onChange={handleInputChange}
-              required
-              className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
-              variant="flat"
-              isInvalid={apellidoIsInvalid}
-              color={apellidoIsInvalid ? "danger" : "success"}
-              errorMessage={nombreIsInvalid && "minimo 4 caracteres y solo letras"}
-            />
-          </div>
-          <div>
-         
-            <Input
-          size="lg"
-            label="correo electrónico"
-              type="email"
-              labelPlacement="outside"
-              name="email"
-              isInvalid={emailIsInvalid}
-              color={emailIsInvalid ? "danger" : "success"}
-              errorMessage={
-                emailIsInvalid && "Por favor, ingrese un correo electrónico válido"
-              }
-              onChange={handleInputChange}
-              required
-              className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
-              variant="flat"
-              />
-          </div>
-          <div>
-     
-            <Input
-          size="lg"
-            label="telefono"
-              type="text"
-              labelPlacement="outside"
-              name="telefono"
-              id="telefono"
-        
-              required
-              className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
-              onChange={handleInputChange}
-              isInvalid={telefonoIsInvalid}
-              color={telefonoIsInvalid ? "danger" : "success"}
-              variant="flat"
-              errorMessage={telefonoIsInvalid &&  "no puede empezar con 0 y solo numeros"}
-            />
-          </div>
-          <div>
-          
-            <Input
-          size="lg"
-              name="documento"
-              label="documento"
-              labelPlacement="outside"
-              type="text"
-              id="documento"
-              required
-              className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
-              onChange={handleInputChange}
-              isInvalid={documentoIsInvalid}
-              color={documentoIsInvalid ? "danger" : "success"}
-              variant="flat"
-              errorMessage={documentoIsInvalid && "no puede empezar con 0 y solo numeros"}
-            />
-          </div>
-          <div>
-          
-            <Input
+            type="text"
+            id="lastName"
+            labelPlacement="outside"
+            name="apellido"
+            onChange={handleInputChange}
+            required
+            className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
+            variant="flat"
+            isInvalid={apellidoIsInvalid}
+            color={apellidoIsInvalid ? "danger" : "primary"}
+            errorMessage={
+              nombreIsInvalid && "minimo 4 caracteres y solo letras"
+            }
+          />
+        </div>
+        <div>
+          <Input
             size="lg"
-              label="contraseña"
-              labelPlacement="outside"
-              id="password"
-              onChange={handleInputChange}
-              name="password"
-              isInvalid={contraseñaIsInvalid}
-              color={contraseñaIsInvalid ? "danger" : "success"}
-              errorMessage={contraseñaIsInvalid && "las contraseña no coinciden"}
-              endContent={
-                <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
-                  {isVisible ? (
-                    <BsEyeSlashFill className="text-2xl text-default-400 pointer-events-none" />
-                  ) : (
-                    <BsEyeFill className="text-2xl text-default-400 pointer-events-none" />
-                  )}
-                </button>
-              }
-              type={isVisible ? "text" : "password"}
-              required
-              className="border-none  sm:mx-auto sm:w-full sm:max-w-sm bg-transparent text-secondaryBlue"
-              variant="flat"
-            />
-          </div>
-          <div>
-           
-            <Input
+            label="Correo electrónico"
+            type="email"
+            labelPlacement="outside"
+            name="email"
+            isInvalid={emailIsInvalid}
+            color={emailIsInvalid ? "danger" : "primary"}
+            errorMessage={
+              emailIsInvalid &&
+              "Por favor, ingrese un correo electrónico válido"
+            }
+            onChange={handleInputChange}
+            required
+            className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
+            variant="flat"
+          />
+        </div>
+        <div>
+          <Input
             size="lg"
-            label="repetir contraseña"
-              id="confirmarContraseña"
-              labelPlacement="outside"
-              onChange={handleRepetirContraseñaOnChange}
-              endContent={
-                <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
-                  {isVisible ? (
-                    <BsEyeSlashFill className="text-2xl text-default-400 pointer-events-none" />
-                  ) : (
-                    <BsEyeFill className="text-2xl text-default-400 pointer-events-none " />
-                  )}
-                </button>
-              }
-              type={isVisible ? "text" : "password"}
-              required
-              className="rounded-large sm:mx-auto sm:w-full sm:max-w-sm bg-primaryWhite text-secondaryBlue"
-              variant="flat"
-              isInvalid={contraseñaIsInvalid}
-              color={contraseñaIsInvalid ? "danger" : "success"}
-              errorMessage={contraseñaIsInvalid && "las contraseña no coinciden"}
-            />
-          </div>
-          <div className="mt-4">
-            <Button
-              type="submit"
-              size="lg"
-              className="flex w-full justify-center rounded-large bg-primaryBlue px-3 py-1.5 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-primaryGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              {isSigningUp ? <Spinner/> : "Registrarse"}
-            </Button>
-          </div>
-        </form>
-      </div>
+            label="Teléfono"
+            type="text"
+            labelPlacement="outside"
+            name="telefono"
+            id="telefono"
+            required
+            className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
+            onChange={handleInputChange}
+            isInvalid={telefonoIsInvalid}
+            color={telefonoIsInvalid ? "danger" : "primary"}
+            variant="flat"
+            errorMessage={
+              telefonoIsInvalid && "no puede empezar con 0 y solo numeros"
+            }
+          />
+        </div>
+        <div>
+          <Input
+            size="lg"
+            name="documento"
+            label="Documento"
+            labelPlacement="outside"
+            type="text"
+            id="documento"
+            required
+            className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent"
+            onChange={handleInputChange}
+            isInvalid={documentoIsInvalid}
+            color={documentoIsInvalid ? "danger" : "primary"}
+            variant="flat"
+            errorMessage={
+              documentoIsInvalid && "no puede empezar con 0 y solo numeros"
+            }
+          />
+        </div>
+        <div>
+          <Input
+            size="lg"
+            label="Contraseña"
+            labelPlacement="outside"
+            id="password"
+            onChange={handleInputChange}
+            name="password"
+            isInvalid={contraseñaIsInvalid}
+            color={contraseñaIsInvalid ? "danger" : "primary"}
+            errorMessage={
+              contraseñaIsInvalid && "las contraseña no coinciden"
+            }
+            endContent={
+              <button
+                className="focus:outline-none"
+                type="button"
+                onClick={toggleVisibility}
+              >
+                {isVisible ? (
+                  <BsEyeSlashFill className="text-2xl text-default-400 pointer-events-none" />
+                ) : (
+                  <BsEyeFill className="text-2xl text-default-400 pointer-events-none" />
+                )}
+              </button>
+            }
+            type={isVisible ? "text" : "password"}
+            required
+            className="border-none sm:mx-auto sm:w-full sm:max-w-sm bg-transparent text-primaryBlue"
+            variant="flat"
+          />
+        </div>
+        <div>
+          <Input
+            size="lg"
+            label="Confirmar contraseña"
+            id="confirmarContraseña"
+            labelPlacement="outside"
+            onChange={handleRepetirContraseñaOnChange}
+            endContent={
+              <button
+                className="focus:outline-none"
+                type="button"
+                onClick={toggleVisibility}
+              >
+                {isVisible ? (
+                  <BsEyeSlashFill className="text-2xl text-default-400 pointer-events-none" />
+                ) : (
+                  <BsEyeFill className="text-2xl text-default-400 pointer-events-none " />
+                )}
+              </button>
+            }
+            type={isVisible ? "text" : "password"}
+            required
+            className="sm:mx-auto sm:w-full sm:max-w-sm"
+            variant="flat"
+            isInvalid={contraseñaIsInvalid}
+            color={contraseñaIsInvalid ? "danger" : "primary"}
+            errorMessage={
+              contraseñaIsInvalid && "las contraseña no coinciden"
+            }
+          />
+        </div>
+        <div className="mt-4">
+          <Button
+            type="submit"
+            size="lg"
+            className="flex w-full justify-center rounded-large bg-primaryBlue px-3 py-1.5 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-primaryGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            {isSigningUp ? <Spinner /> : "Registrarse"}
+          </Button>
+        </div>
+      </form>
     </div>
+  </div>
   );
 };
 

@@ -89,71 +89,52 @@ const Login = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-secondaryBlue text-primaryWhite">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-primaryWhite">
-          RACE-A-CAR
-        </h2>
-        <p className="text-center">Inicio de sesión</p>
-      </div>
+    <div className="flex items-center min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={handleSubmit} id="loginForm">
+      
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form className="space-y-10" onSubmit={handleSubmit} id="loginForm">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-6 text-primaryWhite"
-            >
-              Correo electrónico
-            </label>
-            <div className="mt-2">
+            <div>
               <Input
                 id="email"
                 variant="flat"
+                placeholder="Correo electrónico"
                 isInvalid={isInvalid}
                 name="username"
                 type="email"
                 autoComplete="email"
                 required
                 onChange={handleInputOnChange}
-                errorMessage={isInvalid && "credenciales invalidas"}
-
+                errorMessage={isInvalid && "Credenciales inválidas"}
               />
             </div>
           </div>
-
+    
           <div>
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium leading-6 text-primaryWhite"
-              >
-                Contraseña
-              </label>
-            </div>
-            <div className="mt-2">
+            <div>
               <Input
                 id="password"
                 variant="flat"
+                placeholder="Contraseña"
                 isInvalid={isInvalid}
                 name="password"
                 type="password"
                 autoComplete="current-password"
-                errorMessage={isInvalid && "credenciales invalidas"}
+                errorMessage={isInvalid && "Credenciales inválidas"}
                 required
                 onChange={handleInputOnChange}
               />
             </div>
           </div>
-
-          <div>
+    
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-primaryBlue px-3 py-1.5 text-sm hover:bg-primaryGold font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-secondaryBlue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              size="lg"
+              className="flex w-full justify-center rounded-large bg-primaryBlue py-3 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-primaryGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              {isLogginIn ? <Spinner/> : "Iniciar sesíon"}
+              {isLogginIn ? <Spinner /> : "Iniciar sesión"}
             </button>
-          </div>
         </form>
       </div>
     </div>
