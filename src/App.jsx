@@ -12,6 +12,7 @@ import { Spinner } from "@nextui-org/react"
 import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFechas"
 import Favoritos from "./Components/pages/Favoritos"
 import MiCuenta from "./Components/pages/MiCuenta"
+import Politics from "./Components/utils/Politics"
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <>
-  {autos.length > 0 ? 
+  {/* {autos.length > 0 ?  */}
   <>
    <Header/>
    <Routes>
@@ -33,14 +34,15 @@ function App() {
        <Route path="/publicaciones/porfecha" element={<PublicacionesEntreFechas/>}/>
        <Route path="/user/favoritos" element={<Favoritos/>} />
        <Route path="/user/miCuenta" element={<MiCuenta/>}/>
+       <Route path="politics" element={<Politics/>}/>
    </Routes>
    <Footer/>
    </>
-   :
+{/*    :
    <div className="h-screen w-screen grid place-items-center">
      <Spinner label="cargando..." />
-   </div>
-}
+   </div> */}
+{/* } */}
  
     </>
   )
