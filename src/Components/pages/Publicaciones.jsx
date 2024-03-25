@@ -4,6 +4,7 @@ import PublicacionCard from "../cards/PublicacionCard";
 import { Pagination, PaginationItem } from "@nextui-org/react";
 import { GlobalContext } from "../../context/AppContext";
 import FilterBox from "../utils/FilterBox";
+import Politics from "../utils/Politics"
 
 const Publicaciones = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,8 +60,9 @@ const Publicaciones = () => {
            onChange={handlePageChange}
          />
        </div>
+       <Politics/>
        </>
-
+    
   );
 };
 

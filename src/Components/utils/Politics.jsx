@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import { FaRegPlusSquare, FaRegMinusSquare } from "react-icons/fa";
 
 const Politics = () => {
-  // Estado para controlar qué filas están desplegadas
   const [expandedRows, setExpandedRows] = useState([]);
 
-  // Función para manejar el clic en una fila
   const handleRowClick = (index) => {
     // Clonar el estado actual de filas expandidas
     const newExpandedRows = [...expandedRows];
-    // Toggle: si el índice está en el array, lo elimina; si no está, lo añade
-    if (newExpandedRows.includes(index)) {
-      newExpandedRows.splice(newExpandedRows.indexOf(index), 1);
+    // Verificar si el índice está en el array
+    const indexPosition = newExpandedRows.indexOf(index);
+    // Si la fila ya está expandida, la elimina; de lo contrario, la agrega
+    if (indexPosition !== -1) {
+      newExpandedRows.splice(indexPosition, 1);
     } else {
       newExpandedRows.push(index);
     }
@@ -18,36 +19,27 @@ const Politics = () => {
     setExpandedRows(newExpandedRows);
   };
 
-  // Datos de políticas
   const policies = [
     { title: 'Política 1', description: 'Descripción de la política 1.' },
     { title: 'Política 2', description: 'Descripción de la política 2.' },
     { title: 'Política 3', description: 'Descripción de la política 3.' },
     { title: 'Política 4', description: 'Descripción de la política 4.' },
     { title: 'Política 5', description: 'Descripción de la política 5.' },
+    { title: 'Política 6', description: 'Descripción de la política 6.' },
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-primaryBlue">
-      <div className="bg-white overflow-hidden shadow rounded-lg border w-full sm:w-96">
+    <div className="w-full bg-secondaryBlue text-primaryWhite">
+      <h2 className="text-center font-bold text-2xl underline mb-4">Políticas de Uso</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {policies.map((policy, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
-            {/* Cabecera de la fila */}
-            <div
-              className="cursor-pointer font-bold"
-              style={{
-                textDecoration: expandedRows.includes(index) ? 'underline' : 'none',
-                color: expandedRows.includes(index) ? '#FFD700' : 'inherit',
-                padding: '10px',
-              }}
-              onClick={() => handleRowClick(index)}
-            >
-              {policy.title}
+          <div key={index} className="border rounded-lg p-4 cursor-pointer" onClick={() => handleRowClick(index)}>
+            <div className='flex justify-between items-center'>
+              <h3 className="text-lg font-bold">{policy.title}</h3>
+              {/* Renderizar el icono adecuado según si la fila está expandida o no */}
+              {expandedRows.includes(index) ? <FaRegMinusSquare /> : <FaRegPlusSquare />}
             </div>
-            {/* Descripción (desplegable si la fila está expandida) */}
-            {expandedRows.includes(index) && (
-              <div className="ml-10">{policy.description}</div>
-            )}
+            {expandedRows.includes(index) && <p className="mt-2">{policy.description}</p>}
           </div>
         ))}
       </div>
