@@ -38,7 +38,7 @@ const SearchBox = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:8085/autos/disponiblesPorFecha?fechaInicio=${recogidaDate}&fechaFin=${entregaDate}`
+          `http://44.204.2.67:8085/autos/disponiblesPorFecha?fechaInicio=${recogidaDate}&fechaFin=${entregaDate}`
         );
 
         if (response.ok) {
