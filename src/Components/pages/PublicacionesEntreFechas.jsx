@@ -7,9 +7,10 @@ import FilterBox from "../utils/FilterBox";
 
 const PublicacionesEntreFechas = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4; // change this value according to your needs
+  const itemsPerPage = 20; // change this value according to your needs
 
   const {state} = useContext(GlobalContext)
+  const {fechas} = state
 
   const {autosEntreFechas} = state
  
@@ -30,8 +31,8 @@ const PublicacionesEntreFechas = () => {
 
 
          <div className="w-screen bg-secondaryBlue py-5">
-          <FilterBox array={autosEntreFechas}/>
-
+          
+          <p className="text-primaryWhite text-center">mostrando autos disponibles entre el {fechas.inicio.split("-").reverse().join("/")} hasta {fechas.fin.split("-").reverse().join("/")} </p>
         {currentItems.length > 0 ? 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-[95%] gap-2  mx-auto">
           {currentItems.map((publicacion, i) => {

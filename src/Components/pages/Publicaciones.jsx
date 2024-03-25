@@ -7,7 +7,7 @@ import FilterBox from "../utils/FilterBox";
 
 const Publicaciones = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4; // change this value according to your needs
+  const itemsPerPage = 8; // change this value according to your needs
 
   const {state} = useContext(GlobalContext)
 

@@ -28,7 +28,7 @@ const Favoritos = () => {
     :
     <div className='min-h-screen w-screen bg-secondaryBlue'>
         <h1 className='text-primaryWhite text-center text-[24px] pt-5'>favoritos</h1>
-          <Table aria-label="Example static collection table " className='w-1/4 mx-auto pt-10'>
+          <Table aria-label="Example static collection table " className='w-[90%] md:w-[75%] mx-auto pt-10'>
                 <TableHeader>
                   <TableColumn>IMAGEN</TableColumn>
                   <TableColumn>AUTO</TableColumn>
@@ -51,7 +51,10 @@ const Favoritos = () => {
         })}
                 </TableBody>
               </Table>
-   
+              <div className='w-full flex justify-center pt-10'>
+              <Button color='warning' className='text-primaryWhite mx-auto' onClick={() => navigate("/publicaciones")}>publicaciones</Button>        
+
+              </div>
     </div>
         
 }

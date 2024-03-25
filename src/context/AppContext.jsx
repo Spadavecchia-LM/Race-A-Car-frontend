@@ -13,7 +13,8 @@ const AppContext = ({children}) => {
         autos:[],
         autosFiltrados: null,
         autosEntreFechas: [],
-        favoritos: []
+        favoritos: [],
+        fechas:null
     }
     const reducer = (state,action) => {
         switch(action.type){
@@ -41,10 +42,14 @@ const AppContext = ({children}) => {
                       ...state,
                       favoritos: state.favoritos.filter((fav) => fav.id !== action.payload),
                     };
+
+            case "SET_FECHAS":
+                    return {...state, fechas: action.payload }
                 }
             
             
         }
+
 
 
     const [state,dispatch] = useReducer(reducer, initialValue)
@@ -103,6 +108,14 @@ const AppContext = ({children}) => {
     useEffect(() => {
         getAutos()
     },[])
+
+    useEffect(() => {
+        if(!state.userIsLogged){
+            localStorage.removeItem("favoritos")
+            dispatch({type:"GET_FAVS", payload: []})
+        }
+
+    },[state.userIsLogged])
 
     console.log(state)
      

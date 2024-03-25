@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../../context/AppContext';
 
-const MiCuenta = ({ usuario }) => {
+const MiCuenta = () => {
+
+    const {state} = useContext(GlobalContext)
+
+    const {user} = state
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-[url('./assets/cuentaImage.jpg')] bg-cover">
       <div className="bg-primaryBlue overflow-hidden shadow rounded-lg border w-full sm:max-w-lg">
@@ -11,7 +17,7 @@ const MiCuenta = ({ usuario }) => {
                 Nombre completo
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-              {usuario.nombre} {usuario.apellido}
+              {user.nombre} {user.apellido}
               </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -19,7 +25,7 @@ const MiCuenta = ({ usuario }) => {
                 Dirección de correo electrónico
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-              {usuario.mail}
+              {user.email}
               </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -27,7 +33,7 @@ const MiCuenta = ({ usuario }) => {
                 Número de teléfono
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-              {usuario.telefono}
+              {user.telefono}
               </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -35,7 +41,7 @@ const MiCuenta = ({ usuario }) => {
                 Documento
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-                {usuario.documento}
+                {user.documento}
               </dd>
             </div>
           </dl>

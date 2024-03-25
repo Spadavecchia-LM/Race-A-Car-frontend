@@ -14,6 +14,7 @@ import {
   DropdownTrigger,
   DropdownItem,
   DropdownMenu,
+  Chip,
 } from "@nextui-org/react";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
@@ -31,9 +32,7 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  const rotate = () => {
-    document.querySelector("#hamburger").classList.toggle("rotate-90");
-  };
+
 
   const logout = () => {
     localStorage.removeItem("Authorization");
@@ -46,13 +45,14 @@ const Header = () => {
   ];
   const menuItemsIfIsLogged = [
     { name: "Mis reservas", path: "/user/reservas" },
-    { name: "Lista de deseos", path: "/user/favoritos" },
-    { name: "Mi cuenta", path: "/user/cuenta" },
+    { name: "Favoritos", path: "/user/favoritos" },
+    { name: "Mi cuenta", path: "/user/miCuenta" },
     { name: "Cerrar sesión", path: "/" },
   ];
 
   const navigateAndClose = (url) => {
     navigate(url);
+    
   };
 
   return (
@@ -92,7 +92,7 @@ const Header = () => {
           </Dropdown>
         ) : (
           <Dropdown>
-            <DropdownTrigger>
+            <DropdownTrigger >
               <Avatar
                 size="lg"
                 name={user?.nombre
@@ -104,8 +104,8 @@ const Header = () => {
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
               <DropdownItem key="reservas">Mis reservas</DropdownItem>
-              <DropdownItem key="deseos" onClick={() => navigate("/user/favoritos", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Favoritos</DropdownItem>
-              <DropdownItem key="cuenta">Mi cuenta</DropdownItem>
+              <DropdownItem key="deseos" onClick={() => navigate("/user/favoritos", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Favoritos <Chip size="sm" color="danger">{state.favoritos.length}</Chip></DropdownItem>
+              <DropdownItem key="cuenta" onClick={() => navigate("/user/miCuenta", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Mi cuenta</DropdownItem>
               <DropdownItem color="danger" key="logout" onClick={logout}>
                 Cerrar sesión
               </DropdownItem>

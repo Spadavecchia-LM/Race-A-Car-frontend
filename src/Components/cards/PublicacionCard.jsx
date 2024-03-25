@@ -1,5 +1,5 @@
 import { Button, Spinner } from '@nextui-org/react'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {Card, CardBody, CardFooter, Image,Chip} from "@nextui-org/react";
 import { GiGearStickPattern } from "react-icons/gi";
 import { TbEngine } from "react-icons/tb";
@@ -10,9 +10,12 @@ import { GlobalContext } from '../../context/AppContext';
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import Swal from 'sweetalert2';
+import { FaHeart } from "react-icons/fa";
+import { Toast } from 'flowbite-react';
 
 const PublicacionCard = ({publicacion}) => {
 
+  const favoritos = JSON.parse(localStorage.getItem("favoritos"));
   const {state,dispatch} = useContext(GlobalContext)
   const {autos} = state
 
@@ -36,6 +39,14 @@ const addToFav = () =>
     Swal.fire("debes iniciar sesion para poder agregar a favoritos")
   }
 };
+const eliminar = (id) => {
+  const nuevosFavoritos = favoritos.filter((fav) => fav.id !== id);
+  localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
+  dispatch({ type: "ELIMINAR_FAV", payload: id });
+  alert("se quito de favoritos")
+};
+
+
 
 
 const isInFavs = (id) => {
@@ -77,7 +88,7 @@ const isInFavs = (id) => {
         </div>
     <div className='w-full flex items-center justify-center gap-5'>
       <Button className='bg-primaryGold my-5 text-primaryWhite w-[70%] text-[18px] px-[24px] py-[12px]' size='lg' radius='lg' onClick={() => handleScroll(publicacion.id)}>Alquilar ahora</Button>
-      {!isInFavs(publicacion.id) && <CiHeart onClick={addToFav} className='text-[32px]  cursor-pointer hover:text-danger '  />} 
+      {!isInFavs(publicacion.id) ? <CiHeart onClick={()=>addToFav()} className='text-[32px]  cursor-pointer hover:text-danger '  /> : <FaHeart className='text-[28px]  cursor-pointer text-danger' onClick={()=>eliminar(publicacion.id)} />} 
     </div>
     </CardFooter>
   </Card>

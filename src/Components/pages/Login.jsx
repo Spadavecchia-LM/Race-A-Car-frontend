@@ -89,59 +89,55 @@ const Login = () => {
   }
 
   return (
-<div className="flex items-center min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
-<div className="items-center sm:w-full sm:max-w-sm p-4 rounded-large bg-primaryBlue">
-        <h2 className="text-center font-bold text-primaryGold">
-          Inicia tu sesión
-        </h2>
-      </div>
+    <div className="flex items-center min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
 
-  <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form className="space-y-10" onSubmit={handleSubmit} id="loginForm">
-      <div>
-        <div>
-          <Input
-            id="email"
-            variant="flat"
-            placeholder="Correo electrónico"
-            isInvalid={isInvalid}
-            name="username"
-            type="email"
-            autoComplete="email"
-            required
-            onChange={handleInputOnChange}
-            errorMessage={isInvalid && "Credenciales inválidas"}
-          />
-        </div>
+      
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form className="space-y-10" onSubmit={handleSubmit} id="loginForm">
+          <div>
+            <div>
+              <Input
+                id="email"
+                variant="flat"
+                placeholder="Correo electrónico"
+                isInvalid={isInvalid}
+                name="username"
+                type="email"
+                autoComplete="email"
+                required
+                onChange={handleInputOnChange}
+                errorMessage={isInvalid && "Credenciales inválidas"}
+              />
+            </div>
+          </div>
+    
+          <div>
+            <div>
+              <Input
+                id="password"
+                variant="flat"
+                placeholder="Contraseña"
+                isInvalid={isInvalid}
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                errorMessage={isInvalid && "Credenciales inválidas"}
+                required
+                onChange={handleInputOnChange}
+              />
+            </div>
+          </div>
+    
+            <button
+              type="submit"
+              size="lg"
+              className="flex w-full justify-center rounded-large bg-primaryBlue py-3 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-primaryGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              {isLogginIn ? <Spinner /> : "Iniciar sesión"}
+            </button>
+        </form>
       </div>
-
-      <div>
-        <div>
-          <Input
-            id="password"
-            variant="flat"
-            placeholder="Contraseña"
-            isInvalid={isInvalid}
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            errorMessage={isInvalid && "Credenciales inválidas"}
-            required
-            onChange={handleInputOnChange}
-          />
-        </div>
-      </div>
-
-        <button
-          type="submit"
-          size="lg"
-          className="flex w-full justify-center rounded-large bg-primaryBlue py-3 text-sm font-semibold leading-6 text-primaryWhite shadow-sm hover:bg-primaryGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          {isLogginIn ? <Spinner /> : "Iniciar sesión"}
-        </button>
-    </form>
-  </div>
-</div>
+    </div>
   );
 };
 
