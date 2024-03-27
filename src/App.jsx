@@ -1,5 +1,5 @@
 import { Routes,Route } from "react-router-dom"
-import Footer from "./Components/utils/Footer"
+
 import Header from "./Components/utils/Header"
 import Home from "./Components/pages/Home"
 import PublicacionDetailContainer from "./Components/containers/PublicacionDetailContainer"
@@ -12,6 +12,7 @@ import { Spinner } from "@nextui-org/react"
 import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFechas"
 import Favoritos from "./Components/pages/Favoritos"
 import MiCuenta from "./Components/pages/MiCuenta"
+import Foot from "./Components/utils/Footer"
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
        <Route path="/user/favoritos" element={<Favoritos/>} />
        <Route path="/user/miCuenta" element={<MiCuenta/>}/>
    </Routes>
-   <Footer/>
+   <Foot/>
    </>
    :
    <div className="h-screen w-screen grid place-items-center">
