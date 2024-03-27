@@ -50,8 +50,9 @@ const FilterBox = ({array}) => {
     dispatch({type:"SET_FILTERED_AUTOS", payload:autosFiltrados})
 
     setIsFiltered(true)
-   
+    
   };
+
 
   const clearFilters = () => {
         document.querySelector("#filterForm").reset()
@@ -110,7 +111,7 @@ const FilterBox = ({array}) => {
         </Select>
         
 
-        {!isFiltered ? 
+        {!isFiltered && state.autosFiltrados == null ? 
         <Button
         size="md"
         className={`text-primaryWhite bg-primaryGold min-w-[260px] ${Array.from(marcasFilter).length == 0 && Array.from(categoriasFilter).length == 0 ? "hidden" : ""}`}

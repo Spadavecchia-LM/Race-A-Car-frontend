@@ -64,7 +64,7 @@ const PublicacionDetailContainer = () => {
   return (
     <div className='w-[100vw] bg-secondaryBlue'>
         <div className='w-[90%] mx-auto flex justify-start gap-5 h-[40px] pt-5 items-center '>
-          <FaArrowLeft className='text-[40px] cursor-pointer text-primaryWhite' onClick={() => navigate("/")} />
+          <FaArrowLeft className='text-[40px] cursor-pointer text-primaryWhite' onClick={() => navigate("/publicaciones")} />
           <Dropdown>
             <DropdownTrigger>
               <Button className='border-none bg-transparent'>
