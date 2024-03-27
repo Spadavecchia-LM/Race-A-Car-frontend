@@ -12,7 +12,6 @@ import { Spinner } from "@nextui-org/react"
 import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFechas"
 import Favoritos from "./Components/pages/Favoritos"
 import MiCuenta from "./Components/pages/MiCuenta"
-import Politics from "./Components/utils/Politics"
 
 function App() {
 
@@ -33,8 +32,7 @@ function App() {
        <Route path="/register" element={<Register/>}/>
        <Route path="/publicaciones/porfecha" element={<PublicacionesEntreFechas/>}/>
        <Route path="/user/favoritos" element={<Favoritos/>} />
-       <Route path="/user/miCuenta" element={<MiCuenta/>}/>
-       <Route path="politics" element={<Politics/>}/>
+       <Route path="/user/micuenta" element={<MiCuenta/>}/>
    </Routes>
    <Footer/>
    </>

@@ -59,7 +59,7 @@ const AppContext = ({children}) => {
      
 
         try{
-            const response = await fetch("http://localhost:8085/autos/disponibles")
+            const response = await fetch("http://44.204.2.67:8085/autos/disponibles")
 
             if(response.ok){
                 const data = await response.json()
@@ -75,7 +75,7 @@ const AppContext = ({children}) => {
 
     const getUser = async (email) => {
         try{
-            const response = await fetch(`http://localhost:8085/usuarios/${email}`,
+            const response = await fetch(`http://44.204.2.67:8085/usuarios/${email}`,
                 {
                     headers:{
                         "Authorization": `Bearer: ${localStorage.getItem("Authorization")}`,

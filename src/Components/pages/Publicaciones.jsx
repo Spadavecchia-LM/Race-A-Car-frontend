@@ -14,7 +14,6 @@ const Publicaciones = () => {
 
   const {autos, autosFiltrados} = state
  
-
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = autosFiltrados == null ? autos.slice(indexOfFirstItem, indexOfLastItem) : autosFiltrados.slice(indexOfFirstItem, indexOfLastItem)
@@ -27,9 +26,6 @@ const Publicaciones = () => {
 
   return (
     <>
-
-
-
          <div className="w-screen bg-secondaryBlue py-5">
           <FilterBox array={autos}/>
 

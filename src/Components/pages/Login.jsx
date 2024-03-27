@@ -44,7 +44,7 @@ const Login = () => {
 
 
     try{
-      const response = await fetch("http://localhost:8085/auth/login", {
+      const response = await fetch("http://44.204.2.67:8085/auth/login", {
         method:"POST",
         body: JSON.stringify(user),
         headers:{

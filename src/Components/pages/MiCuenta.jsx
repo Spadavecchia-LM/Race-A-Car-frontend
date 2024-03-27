@@ -17,7 +17,7 @@ const MiCuenta = () => {
                 Nombre completo
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-              {user.nombre} {user.apellido}
+              {/* {user.nombre} {user.apellido} */}
               </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -25,7 +25,7 @@ const MiCuenta = () => {
                 Dirección de correo electrónico
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-              {user.email}
+              {/* {user.email} */}
               </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -33,7 +33,7 @@ const MiCuenta = () => {
                 Número de teléfono
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-              {user.telefono}
+              {/* {user.telefono} */}
               </dd>
             </div>
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -41,7 +41,7 @@ const MiCuenta = () => {
                 Documento
               </dt>
               <dd className="mt-1 text-sm text-primaryWhite sm:mt-0 sm:col-span-2">
-                {user.documento}
+                {/* {user.documento} */}
               </dd>
             </div>
           </dl>

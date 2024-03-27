@@ -23,9 +23,6 @@ const Politics = () => {
     { title: 'Política 1', description: 'Descripción de la política 1.' },
     { title: 'Política 2', description: 'Descripción de la política 2.' },
     { title: 'Política 3', description: 'Descripción de la política 3.' },
-    { title: 'Política 4', description: 'Descripción de la política 4.' },
-    { title: 'Política 5', description: 'Descripción de la política 5.' },
-    { title: 'Política 6', description: 'Descripción de la política 6.' },
   ];
 
   return (
@@ -36,7 +33,6 @@ const Politics = () => {
           <div key={index} className="border rounded-lg p-4 cursor-pointer" onClick={() => handleRowClick(index)}>
             <div className='flex justify-between items-center'>
               <h3 className="text-lg font-bold">{policy.title}</h3>
-              {/* Renderizar el icono adecuado según si la fila está expandida o no */}
               {expandedRows.includes(index) ? <FaRegMinusSquare /> : <FaRegPlusSquare />}
             </div>
             {expandedRows.includes(index) && <p className="mt-2">{policy.description}</p>}
