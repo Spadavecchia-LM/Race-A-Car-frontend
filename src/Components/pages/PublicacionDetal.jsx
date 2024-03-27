@@ -25,6 +25,7 @@ import { BiCategory } from "react-icons/bi";
 import { GiCarWheel } from "react-icons/gi";
 import { LuFuel } from "react-icons/lu";
 import DateRangePicker from "../utils/DateRangePicker";
+import Politics from '../utils/Politics'
 
 
 const PublicacionDetal = ({ publicacion }) => {
@@ -290,7 +291,7 @@ const PublicacionDetal = ({ publicacion }) => {
       </div>
       }
      
-
+     <Politics />
       <div className="flex flex-col gap-3 pb-10">
         <Button
           className="bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[90%] text-[18px] px-[24px] py-[12px]"
@@ -308,6 +309,7 @@ const PublicacionDetal = ({ publicacion }) => {
           Proceder con el pago
         </Button>
       </div>
+      
     </>
   );
 };

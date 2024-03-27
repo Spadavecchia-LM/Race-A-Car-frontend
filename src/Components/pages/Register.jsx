@@ -7,118 +7,125 @@ import Swal from "sweetalert2";
 const Register = () => {
   const navigate = useNavigate();
 
-  const [isSigningUp, setIsSigningUp] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false)
 
   const [payload, setPayload] = useState({
-    nombre: "",
-    apellido: "",
-    email: "",
-    telefono: "",
-    documento: "",
-    password: "",
-  });
+    nombre:"",
+    apellido:"",
+    email:"",
+    telefono:"",
+    documento:"",
+    password:""
+    })
 
-  const [repetirContraseña, setRepetirContraseña] = useState("");
+  const [repetirContraseña, setRepetirContraseña] = useState("")
 
+
+
+
+
+  
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target
 
-    setPayload({ ...payload, [name]: value });
-  };
+    setPayload({...payload, [name]:value})
+  }
 
   const handleRepetirContraseñaOnChange = (e) => {
-    setRepetirContraseña(e.target.value);
-  };
+    setRepetirContraseña(e.target.value)
+  }
 
-  const validateEmail = (value) => {
-    return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-  };
+
+  const validateEmail = (value) =>{
+   return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+  }
 
   const validateNombre = (value) => {
-    return value.match(/^[a-zA-Z]{4,}$/);
-  };
+    return value.match(/^[a-zA-Z]{4,}$/)
+  }
   const validateApellido = (value) => {
-    return value.match(/^[a-zA-Z]{4,}$/);
-  };
+    return value.match(/^[a-zA-Z]{4,}$/)
+  }
   const validateTelefono = (value) => {
-    return value.match(/^[1-9][0-9]*$/);
-  };
+    return value.match(/^[1-9][0-9]*$/)
+  }
   const validateDocumento = (value) => {
-    return value.match(/^[1-9][0-9]*$/);
-  };
+    return value.match(/^[1-9][0-9]*$/)
+  }
   const validateContraseña = () => {
-    return payload.password === repetirContraseña;
-  };
+    return payload.password === repetirContraseña 
+  }
+
 
   const emailIsInvalid = !validateEmail(payload.email) && payload.email !== "";
-  const nombreIsInvalid =
-    !validateNombre(payload.nombre) && payload.nombre !== "";
-  const apellidoIsInvalid =
-    !validateApellido(payload.apellido) && payload.apellido !== "";
-  const telefonoIsInvalid =
-    !validateTelefono(payload.telefono) && payload.telefono !== "";
-  const documentoIsInvalid =
-    !validateDocumento(payload.documento) && payload.documento !== "";
-  const contraseñaIsInvalid = !validateContraseña();
+  const nombreIsInvalid = !validateNombre(payload.nombre) && payload.nombre !== ""
+  const apellidoIsInvalid = !validateApellido(payload.apellido) && payload.apellido !== ""
+  const telefonoIsInvalid = !validateTelefono(payload.telefono) && payload.telefono !== ""
+  const documentoIsInvalid = !validateDocumento(payload.documento) && payload.documento !== ""
+  const contraseñaIsInvalid = !validateContraseña()
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setIsSigningUp(true);
+    setIsSigningUp(true)
 
-    if (
-      !emailIsInvalid &&
-      !nombreIsInvalid &&
-      !apellidoIsInvalid &&
-      !telefonoIsInvalid &&
-      !documentoIsInvalid &&
-      !contraseñaIsInvalid
-    ) {
-      try {
+    if(!emailIsInvalid && !nombreIsInvalid && !apellidoIsInvalid && !telefonoIsInvalid && !documentoIsInvalid && !contraseñaIsInvalid){
+      try{
+
         const settings = {
-          method: "POST",
+          method:"POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify(payload),
-        };
+          body: JSON.stringify(payload)
+        }
 
         const response = await fetch("http://44.204.2.67:8085/auth/register", settings)
 
-        if (response.ok) {
+        if(response.ok){
+
           Swal.fire({
-            icon: "success",
-            title: "Registro exitoso!",
-            text: "Te enviamos un mail con tus datos, ya podes iniciar sesión",
-          });
+            icon:"success",
+            title:"Registro exitoso!",
+            text:"Te enviamos un mail con tus datos, ya podes iniciar sesión"
+          })
 
           setPayload({
-            nombre: "",
-            apellido: "",
-            email: "",
-            telefono: "",
-            documento: "",
-            password: "",
-          });
+            nombre:"",
+            apellido:"",
+            email:"",
+            telefono:"",
+            documento:"",
+            password:""
+          })
 
-          setRepetirContraseña("");
+          setRepetirContraseña("")
 
-          document.querySelector("#registerForm").reset();
+          document.querySelector("#registerForm").reset()
 
-          navigate("/login");
+  
 
-          window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+          navigate("/login")
+
+          window.scrollTo({left:0, top:0, behavior:"instant"})
         }
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setIsSigningUp(false);
+
+      }catch(err){
+        console.log(err)
       }
-    } else {
-      alert("revise los campos y vuelta a intentarlo");
-      setIsSigningUp(false);
+      finally{
+        setIsSigningUp(false)
+      }
+    }else{
+      alert("revise los campos y vuelta a intentarlo")
+      setIsSigningUp(false)
     }
+
   };
+
+
+
 
   const [isVisible, setIsVisible] = React.useState(false);
 

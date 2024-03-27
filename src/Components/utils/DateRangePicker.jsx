@@ -57,4 +57,4 @@ const DateRangePicker  = ({ disabledDates }) => {
   )
 }
 
-export default DateRangePicker 
+export default DateRangePicker;

@@ -4,7 +4,6 @@ import PublicacionCard from "../cards/PublicacionCard";
 import { Pagination, PaginationItem } from "@nextui-org/react";
 import { GlobalContext } from "../../context/AppContext";
 import FilterBox from "../utils/FilterBox";
-import Politics from "../utils/Politics"
 
 const Publicaciones = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,6 +13,7 @@ const Publicaciones = () => {
 
   const {autos, autosFiltrados} = state
  
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = autosFiltrados == null ? autos.slice(indexOfFirstItem, indexOfLastItem) : autosFiltrados.slice(indexOfFirstItem, indexOfLastItem)
@@ -26,6 +26,9 @@ const Publicaciones = () => {
 
   return (
     <>
+
+
+
          <div className="w-screen bg-secondaryBlue py-5">
           <FilterBox array={autos}/>
 
@@ -56,9 +59,8 @@ const Publicaciones = () => {
            onChange={handlePageChange}
          />
        </div>
-       <Politics/>
        </>
-    
+
   );
 };
 

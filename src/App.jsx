@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-  {/* {autos.length > 0 ?  */}
+  {autos.length > 0 ? 
   <>
    <Header/>
    <Routes>
@@ -32,15 +32,15 @@ function App() {
        <Route path="/register" element={<Register/>}/>
        <Route path="/publicaciones/porfecha" element={<PublicacionesEntreFechas/>}/>
        <Route path="/user/favoritos" element={<Favoritos/>} />
-       <Route path="/user/micuenta" element={<MiCuenta/>}/>
+       <Route path="/user/miCuenta" element={<MiCuenta/>}/>
    </Routes>
    <Footer/>
    </>
-{/*    :
+   :
    <div className="h-screen w-screen grid place-items-center">
      <Spinner label="cargando..." />
-   </div> */}
-{/* } */}
+   </div>
+}
  
     </>
   )
