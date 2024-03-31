@@ -35,8 +35,14 @@ const Header = () => {
 
 
   const logout = () => {
-    localStorage.removeItem("Authorization");
-    dispatch({ type: "LOGOUT" });
+    const location = window.location.href
+    if(location.includes("user")){
+      navigate("/")
+      dispatch({ type: "LOGOUT" });
+    }else{
+      dispatch({ type: "LOGOUT" });
+    }
+    
   };
 
   const menuItems = [

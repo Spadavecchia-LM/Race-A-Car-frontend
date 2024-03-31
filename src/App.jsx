@@ -12,6 +12,7 @@ import { Spinner } from "@nextui-org/react"
 import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFechas"
 import Favoritos from "./Components/pages/Favoritos"
 import MiCuenta from "./Components/pages/MiCuenta"
+import Foot from "./Components/utils/Footer"
 
 function App() {
 

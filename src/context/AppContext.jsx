@@ -22,6 +22,7 @@ const AppContext = ({children}) => {
                 return {...state, userIsLogged: true}
             case "LOGOUT":
                 localStorage.removeItem("favoritos")
+                localStorage.removeItem("Authorization")
                 return {...state, userIsLogged:false, userEmail:null, user:null, favoritos:[]}
             case "SET_USER":
                 return {...state, user: action.payload}

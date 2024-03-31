@@ -1,26 +1,63 @@
 import { Button, Spinner } from "@nextui-org/react";
 import React, { useContext, useEffect } from "react";
 import { Card, CardBody, CardFooter, Image, Chip } from "@nextui-org/react";
+import { Button, Spinner } from "@nextui-org/react";
+import React, { useContext, useEffect } from "react";
+import { Card, CardBody, CardFooter, Image, Chip } from "@nextui-org/react";
 import { GiGearStickPattern } from "react-icons/gi";
 import { TbEngine } from "react-icons/tb";
 import { GoPeople } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/AppContext";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/AppContext";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import { FaHeart } from "react-icons/fa";
+import { Toast } from "flowbite-react";
+import { Rating } from "flowbite-react";
 import { Toast, Rating } from "flowbite-react";
 
+const PublicacionCard = ({ publicacion }) => {
 const PublicacionCard = ({ publicacion }) => {
   const favoritos = JSON.parse(localStorage.getItem("favoritos"));
   const { state, dispatch } = useContext(GlobalContext);
   const { autos } = state;
+  const { state, dispatch } = useContext(GlobalContext);
+  const { autos } = state;
 
+  const navigate = useNavigate();
   const navigate = useNavigate();
 
   const handleScroll = (id) => {
+    navigate("/publicacion/" + id);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  };
+  const addToFav = () => {
+    if (state.userIsLogged) {
+      if (!isInFavs(publicacion.id)) {
+        dispatch({ type: "ADD_FAV", payload: publicacion });
+        localStorage.setItem(
+          "favoritos",
+          JSON.stringify([...state.favoritos, publicacion])
+        );
+        Swal.fire({
+          title: "se agrego a favoritos",
+        });
+      }
+    } else {
+      Swal.fire("debes iniciar sesion para poder agregar a favoritos");
+    }
+  };
+  const eliminar = (id) => {
+    const nuevosFavoritos = favoritos.filter((fav) => fav.id !== id);
+    localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
+    dispatch({ type: "ELIMINAR_FAV", payload: id });
+    alert("se quito de favoritos");
+  };
     navigate("/publicacion/" + id);
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
@@ -50,12 +87,15 @@ const PublicacionCard = ({ publicacion }) => {
   const isInFavs = (id) => {
     return state.favoritos.some((user) => user.id == id);
   };
+  const isInFavs = (id) => {
+    return state.favoritos.some((user) => user.id == id);
+  };
 
   return (
     <>
       {autos.length > 0 ? (
-        <Card shadow="sm" className="p-2  min-h-full ">
-          <CardBody className="overflow-visible p-0">
+        <Card shadow="sm" className="p-2  min-h-full" >
+          <CardBody className="overflow-visible p-0 hover:scale-[1.1] transition cursor-pointer  duration-100" onClick={() => handleScroll(publicacion.id)}>
             <Image
               shadow="sm"
               radius="lg"
@@ -74,20 +114,21 @@ const PublicacionCard = ({ publicacion }) => {
               <p className="text-primaryBlue text-[20px] md:text-[24px]  lg:text-[28px] pt-5">
                 {publicacion.valor} USD/dia
               </p>
-              <div className='flex justify-between items-center mt-4 w-full'>
-              <Chip className="bg-primaryBlue text-primaryWhite text-[12px]">
-                {publicacion.categoria.categoria}
-              </Chip>
-              <Rating>
-                <Rating.Star />
-                <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
-                  4.95
-                </p>
-                <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
-                <a className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">
-                  73 valoraciones
-                </a>
-              </Rating>
+
+              <div className="flex justify-between items-center mt-4 w-full">
+                <Chip className="bg-primaryBlue text-primaryWhite text-[12px]">
+                  {publicacion.categoria.categoria}
+                </Chip>
+                <Rating>
+                  <Rating.Star />
+                  <p className="ml-2 text-sm font-bold text-gray-900 dark:text-white">
+                    4.95
+                  </p>
+                  <span className="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400" />
+                  <a className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">
+                    73 valoraciones
+                  </a>
+                </Rating>
               </div>
             </div>
 
