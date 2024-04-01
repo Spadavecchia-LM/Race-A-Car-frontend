@@ -26,12 +26,11 @@ import { GiCarWheel } from "react-icons/gi";
 import { LuFuel } from "react-icons/lu";
 import DateRangePicker from "../utils/DateRangePicker";
 import Politics from '../utils/Politics'
+import ReservaSeleccionada from "../pages/ReservaSeleccionada";
 
 
 const PublicacionDetal = ({ publicacion }) => {
   const { state } = useContext(GlobalContext);
-
-
   const [disabledDates, setDisabledDates] = React.useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -54,11 +53,6 @@ const PublicacionDetal = ({ publicacion }) => {
 
     getFechasInhabilitadas();
   }, []);
-
-
-
-
-
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState("md");
@@ -90,6 +84,11 @@ const PublicacionDetal = ({ publicacion }) => {
   } = publicacion;
 
   const navigate = useNavigate();
+
+  const handleProceedToPayment = () => {
+    // Redirigir al componente ReservaSeleccionada con la ID de la publicación
+    navigate(`/ReservaSeleccionada`);
+  };
 
   return (
     <>
@@ -305,6 +304,7 @@ const PublicacionDetal = ({ publicacion }) => {
           className="bg-primaryGold my-5 mx-auto text-primaryWhite w-[80%] sm:w-[90%] text-[18px] px-[24px] py-[12px]"
           size="lg"
           radius="lg"
+          onClick={handleProceedToPayment}
         >
           Proceder con el pago
         </Button>
