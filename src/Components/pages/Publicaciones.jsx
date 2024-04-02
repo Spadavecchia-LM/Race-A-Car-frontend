@@ -26,9 +26,6 @@ const Publicaciones = () => {
 
   return (
     <>
-
-
-
          <div className="w-screen bg-secondaryBlue py-5">
           <FilterBox array={autos}/>
 
@@ -49,7 +46,6 @@ const Publicaciones = () => {
        
        </div>
  
- 
        <div className="flex justify-center items-center bg-secondaryBlue h-[100px]">
          <Pagination
            loop
@@ -58,7 +54,7 @@ const Publicaciones = () => {
            initialPage={currentPage}
            onChange={handlePageChange}
          />
-       </div>
+       </div> 
        </>
 
   );
