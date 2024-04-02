@@ -8,8 +8,8 @@ const MiCuenta = () => {
     const {user} = state
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[url('./assets/cuentaImage.jpg')] bg-cover">
-      <div className="bg-primaryBlue overflow-hidden shadow rounded-lg border w-full sm:max-w-lg">
+    <div className="flex justify-center items-center min-h-screen bg-secondaryBlue">
+      <div className="bg-transparent overflow-hidden shadow rounded-lg border w-full sm:max-w-lg">
         <div className="border-t border-primaryGold px-4 py-5 sm:p-0">
           <dl className="sm:divide-y sm:divide-primaryGold">
             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

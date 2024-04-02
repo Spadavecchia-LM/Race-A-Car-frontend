@@ -50,7 +50,7 @@ const Header = () => {
     { name: "Iniciar sesión", path: "/login" },
   ];
   const menuItemsIfIsLogged = [
-    { name: "Mis reservas", path: "/user/reservas" },
+    { name: "Mis reservas", path: "/user/misreservas" },
     { name: "Favoritos", path: "/user/favoritos" },
     { name: "Mi cuenta", path: "/user/miCuenta" },
     { name: "Cerrar sesión", path: "/" },
@@ -109,7 +109,7 @@ const Header = () => {
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
-              <DropdownItem key="reservas">Mis reservas</DropdownItem>
+              <DropdownItem key="reservas" onClick={() => navigate("/user/misreservas", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Mis reservas</DropdownItem>
               <DropdownItem key="deseos" onClick={() => navigate("/user/favoritos", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Favoritos <Chip size="sm" color="danger">{state.favoritos.length}</Chip></DropdownItem>
               <DropdownItem key="cuenta" onClick={() => navigate("/user/miCuenta", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Mi cuenta</DropdownItem>
               <DropdownItem color="danger" key="logout" onClick={logout}>

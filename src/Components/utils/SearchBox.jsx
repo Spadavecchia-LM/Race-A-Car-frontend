@@ -155,7 +155,7 @@ const SearchBox = () => {
             variant="solid"
             type="submit"
           >
-            {isLoading ? <Spinner/> : "buscar un vehículo"}
+            {isLoading ? <Spinner/> : "Buscar un vehículo"}
           </Button>
         </div>
       </form>

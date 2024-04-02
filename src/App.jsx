@@ -13,6 +13,7 @@ import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFecha
 import Favoritos from "./Components/pages/Favoritos"
 import MiCuenta from "./Components/pages/MiCuenta"
 import ReservaSeleccionada from "./Components/pages/ReservaSeleccionada";
+import MisReservas from "./Components/pages/MisReservas";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
        <Route path="/user/favoritos" element={<Favoritos/>} />
        <Route path="/user/miCuenta" element={<MiCuenta/>}/>
        <Route path="/ReservaSeleccionada" element={<ReservaSeleccionada />} />
+       <Route path="/user/misreservas" element={<MisReservas />} />
    </Routes>
    <FooterMain/>
    </>
