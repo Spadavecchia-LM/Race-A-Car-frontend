@@ -35,17 +35,45 @@ const PublicacionCard = ({ publicacion }) => {
         );
         Swal.fire({
           title: "se agrego a favoritos",
+          toast:true,
+          showConfirmButton:false,
+          position:"bottom",
+          timer:2000,
+          icon:"success",
+          color:"#032047"
         });
       }
     } else {
-      Swal.fire("debes iniciar sesion para poder agregar a favoritos");
+      Swal.fire(
+        {
+          title: "Debes iniciar sesión para poder agregar a favoritos",
+          toast:true,
+          showConfirmButton:false,
+          position:"bottom",
+          timer:2000,
+          color:"#032047",
+          icon:"warning",
+          iconColor:"#ba8f04"
+        }
+        );
     }
   };
   const eliminar = (id) => {
     const nuevosFavoritos = favoritos.filter((fav) => fav.id !== id);
     localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
     dispatch({ type: "ELIMINAR_FAV", payload: id });
-    alert("se quito de favoritos");
+    Swal.fire(
+      {
+        title: "se quito de favoritos",
+        toast:true,
+        showConfirmButton:false,
+        position:"bottom",
+        timer:2000,
+        color:"#032047",
+        icon:"error",
+        
+      }
+      );
   };
 
   const isInFavs = (id) => {

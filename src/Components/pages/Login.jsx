@@ -31,7 +31,8 @@ const Login = () => {
       icon: "success",
       title: "Iniciaste sesión correctamente",
       showConfirmButton: true,
-      timer: 3000
+      timer: 2000,
+      color:"#032047"
     });
     navigate("/")
   }

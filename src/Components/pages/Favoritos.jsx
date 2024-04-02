@@ -4,19 +4,32 @@ import { Avatar, Button, Image } from '@nextui-org/react';
 import { useNavigate } from 'react-router-dom';
 import {  Table,  TableHeader,  TableBody,  TableColumn,  TableRow,  TableCell,DropdownMenu, Dropdown, DropdownItem, DropdownTrigger} from "@nextui-org/react";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Swal from 'sweetalert2';
 const Favoritos = () => {
     const favoritos = JSON.parse(localStorage.getItem("favoritos"));
 
     const { state, dispatch } = useContext(GlobalContext);
 
-    
+  
     const navigate = useNavigate() 
 
     const eliminar = (id) => {
         const nuevosFavoritos = favoritos.filter((fav) => fav.id !== id);
         localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
         dispatch({ type: "ELIMINAR_FAV", payload: id });
-        alert("borrado con exito")
+        Swal.fire(
+          {
+            title: "Borrado de favoritos",
+            toast:true,
+            showConfirmButton:false,
+            position:"bottom",
+            timer:2000,
+            color:"#032047",
+            icon:"error",
+           
+            
+          }
+          );
       };
   return (
     <>

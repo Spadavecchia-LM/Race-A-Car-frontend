@@ -50,7 +50,7 @@ const Header = () => {
     { name: "Iniciar sesión", path: "/login" },
   ];
   const menuItemsIfIsLogged = [
-    { name: "Mis reservas", path: "/user/reservas" },
+    { name: "Mis reservas", path: "/user/misreservas" },
     { name: "Favoritos", path: "/user/favoritos" },
     { name: "Mi cuenta", path: "/user/miCuenta" },
     { name: "Cerrar sesión", path: "/" },

@@ -13,6 +13,11 @@ import PublicacionesEntreFechas from "./Components/pages/PublicacionesEntreFecha
 import Favoritos from "./Components/pages/Favoritos"
 import MiCuenta from "./Components/pages/MiCuenta"
 import Foot from "./Components/utils/Footer"
+import ReservaSeleccionada from "./Components/pages/ReservaSeleccionada";
+import MisReservas from "./Components/pages/MisReservas";
+import DetalleReserva from "./Components/pages/DetalleReserva";
+import WhatasppIcon from "./Components/utils/WhatasppIcon"
+
 
 function App() {
 
@@ -34,8 +39,12 @@ function App() {
        <Route path="/publicaciones/porfecha" element={<PublicacionesEntreFechas/>}/>
        <Route path="/user/favoritos" element={<Favoritos/>} />
        <Route path="/user/miCuenta" element={<MiCuenta/>}/>
+       <Route path="/ReservaSeleccionada/:id" element={<ReservaSeleccionada />} />
+       <Route path="/user/misreservas" element={<MisReservas />} />
+       <Route path="/detallereserva" element={<DetalleReserva />} />
    </Routes>
    <Foot/>
+   <WhatasppIcon/>
    </>
    :
    <div className="h-screen w-screen grid place-items-center">

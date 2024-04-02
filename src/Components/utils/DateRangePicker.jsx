@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import { es } from 'date-fns/locale/es';
+import { GlobalContext } from "../../context/AppContext";
 registerLocale('es', es)
 
-const DateRangePicker  = ({ disabledDates }) => {
+const DateRangePicker  = ({ disabledDates}) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const {dispatch} = useContext(GlobalContext)
+
+  useEffect(() => {
+    dispatch({type:"SET_INICIO_RESERVA", payload: startDate})
+    dispatch({type:"SET_FIN_RESERVA", payload: endDate})
+
+  },[endDate, startDate])
 
   return (
     <>

@@ -25,10 +25,12 @@ import { BiCategory } from "react-icons/bi";
 import { GiCarWheel } from "react-icons/gi";
 import { LuFuel } from "react-icons/lu";
 import DateRangePicker from "../utils/DateRangePicker";
+import Politics from '../utils/Politics'
+import ReservaSeleccionada from "../pages/ReservaSeleccionada";
 
 
 const PublicacionDetal = ({ publicacion }) => {
-  const { state } = useContext(GlobalContext);
+  const { state,dispatch } = useContext(GlobalContext);
 
 
   const [disabledDates, setDisabledDates] = React.useState([]);
@@ -56,9 +58,6 @@ const PublicacionDetal = ({ publicacion }) => {
 
 
 
-
-
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState("md");
 
@@ -70,6 +69,12 @@ const PublicacionDetal = ({ publicacion }) => {
   const handleScroll = () => {
     navigate("/publicaciones");
     window.scrollTo({ left: 0, top: 0, behavior: "auto" });
+
+    
+  };
+  const handleProceedToPayment = () => {
+    // Redirigir al componente ReservaSeleccionada con la ID de la publicación
+    navigate(`/ReservaSeleccionada/${publicacion.id}`);
   };
 
   const {
@@ -290,7 +295,7 @@ const PublicacionDetal = ({ publicacion }) => {
       </div>
       }
      
-
+     <Politics />
       <div className="flex flex-col gap-3 pb-10">
         <Button
           className="bg-primaryBlue my-5 mx-auto text-primaryWhite w-[80%] sm:w-[90%] text-[18px] px-[24px] py-[12px]"
@@ -304,8 +309,9 @@ const PublicacionDetal = ({ publicacion }) => {
           className="bg-primaryGold my-5 mx-auto text-primaryWhite w-[80%] sm:w-[90%] text-[18px] px-[24px] py-[12px]"
           size="lg"
           radius="lg"
+          onClick={handleProceedToPayment}
         >
-          Proceder con el pago
+          Proceder con la reserva
         </Button>
       </div>
     </>

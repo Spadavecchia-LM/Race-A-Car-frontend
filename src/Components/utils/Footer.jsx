@@ -13,24 +13,24 @@ const Foot = () => {
         </div>
         <div className=" grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
           <div>
-            <Footer.Title title="about" className='text-primaryWhite' />
+            <Footer.Title title="Sobre nosotros" className='text-primaryWhite' />
             <Footer.LinkGroup col>
-              <Footer.Link  className='text-primaryWhite'>Flowbite</Footer.Link>
-              <Footer.Link  className='text-primaryWhite'>Tailwind CSS</Footer.Link>
+              <Footer.Link  className='text-primaryWhite'>Historia</Footer.Link>
+              <Footer.Link  className='text-primaryWhite'>Servicios</Footer.Link>
             </Footer.LinkGroup>
           </div>
           <div>
-            <Footer.Title title="Follow us" className='text-primaryWhite' />
+            <Footer.Title title="Redes" className='text-primaryWhite' />
             <Footer.LinkGroup col>
-              <Footer.Link className='text-primaryWhite'>Github</Footer.Link>
-              <Footer.Link className='text-primaryWhite'>Discord</Footer.Link>
+              <Footer.Link className='text-primaryWhite'>Facebook</Footer.Link>
+              <Footer.Link className='text-primaryWhite'>Instagram</Footer.Link>
             </Footer.LinkGroup>
           </div>
           <div>
-            <Footer.Title title="Legal" className='text-primaryWhite' />
+            <Footer.Title title="Politicas" className='text-primaryWhite' />
             <Footer.LinkGroup col>
-              <Footer.Link className='text-primaryWhite'>Privacy Policy</Footer.Link>
-              <Footer.Link className='text-primaryWhite'>Terms &amp; Conditions</Footer.Link>
+              <Footer.Link className='text-primaryWhite'>Politicas de uso</Footer.Link>
+              <Footer.Link className='text-primaryWhite'>Politicas de cancelación</Footer.Link>
             </Footer.LinkGroup>
           </div>
         </div>

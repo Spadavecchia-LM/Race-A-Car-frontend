@@ -4,70 +4,82 @@ import { createContext, useEffect, useReducer } from "react";
 export const GlobalContext = createContext()
 
 
-const AppContext = ({children}) => {
+const AppContext = ({ children }) => {
 
     const initialValue = {
         userIsLogged: false,
         userEmail: null,
         user: null,
-        autos:[],
+        autos: [],
         autosFiltrados: null,
         autosEntreFechas: [],
         favoritos: [],
-        fechas:null
+        fechas: null,
+        resevaSeleccionada: null,
+        fechaInicioReserva: "",
+        fechaFinReserva:""
+
     }
-    const reducer = (state,action) => {
-        switch(action.type){
+    const reducer = (state, action) => {
+        switch (action.type) {
             case "LOGIN":
-                return {...state, userIsLogged: true}
+                return { ...state, userIsLogged: true }
             case "LOGOUT":
                 localStorage.removeItem("favoritos")
                 localStorage.removeItem("Authorization")
-                return {...state, userIsLogged:false, userEmail:null, user:null, favoritos:[]}
+                return { ...state, userIsLogged: false, userEmail: null, user: null, favoritos: [] }
             case "SET_USER":
-                return {...state, user: action.payload}
+                return { ...state, user: action.payload }
             case "SET_USER_EMAIL":
-                return {...state, userEmail: action.payload}
+                return { ...state, userEmail: action.payload }
             case "GET_AUTOS":
-                return {...state, autos: action.payload}
+                return { ...state, autos: action.payload }
             case "SET_FILTERED_AUTOS":
-                return {...state, autosFiltrados:action.payload}
+                return { ...state, autosFiltrados: action.payload }
             case "SET_AUTOSENTREFECHAS":
-                return {...state, autosEntreFechas:action.payload}
+                return { ...state, autosEntreFechas: action.payload }
             case "ADD_FAV":
                 return { ...state, favoritos: [...state.favoritos, action.payload] };
             case "GET_FAVS":
                 return { ...state, favoritos: action.payload };
             case "ELIMINAR_FAV":
                 return {
-                      ...state,
-                      favoritos: state.favoritos.filter((fav) => fav.id !== action.payload),
-                    };
+                    ...state,
+                    favoritos: state.favoritos.filter((fav) => fav.id !== action.payload),
+                };
 
             case "SET_FECHAS":
-                    return {...state, fechas: action.payload }
-                }
-            
-            
+                return { ...state, fechas: action.payload }
+
+            case "SET_RESERVA":
+                return {...state, reservaSeleccionada: action.payload}
+            case "SET_INICIO_RESERVA":
+                return {...state, fechaInicioReserva: action.payload}
+            case "SET_FIN_RESERVA":
+                return {...state, fechaFinReserva: action.payload}
         }
 
 
 
-    const [state,dispatch] = useReducer(reducer, initialValue)
+    }
+
+
+
+    const [state, dispatch] = useReducer(reducer, initialValue)
 
     const getAutos = async () => {
 
-     
 
-        try{
+
+        try {
             const response = await fetch("http://44.204.2.67:8085/autos/disponibles")
 
-            if(response.ok){
+            if (response.ok) {
                 const data = await response.json()
-                dispatch({type:"GET_AUTOS", payload: data})
+                dispatch({ type: "GET_AUTOS", payload: data })
             }
-            
-        }catch(err){
+
+        } catch (err) {
             console.log(err)
         }
 
@@ -75,54 +87,54 @@ const AppContext = ({children}) => {
     }
 
     const getUser = async (email) => {
-        try{
+        try {
             const response = await fetch(`http://44.204.2.67:8085/usuarios/${email}`,
                 {
-                    headers:{
+                    headers: {
                         "Authorization": `Bearer: ${localStorage.getItem("Authorization")}`,
                         "Content-Type": "application/json",
-                    
+
                     }
                 }
-                )
+            )
 
-            if(response.ok){
+            if (response.ok) {
                 const data = await response.json()
 
-                dispatch({type:"SET_USER", payload: data})
+                dispatch({ type: "SET_USER", payload: data })
             }
 
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
     useEffect(() => {
-        if(state.userIsLogged && state.userEmail != null){
+        if (state.userIsLogged && state.userEmail != null) {
             getUser(state.userEmail)
         }
-       
-    },[state.userIsLogged, state.userEmail])
+
+    }, [state.userIsLogged, state.userEmail])
 
 
-    
+
     useEffect(() => {
         getAutos()
-    },[])
+    }, [])
 
     useEffect(() => {
-        if(!state.userIsLogged){
+        if (!state.userIsLogged) {
             localStorage.removeItem("favoritos")
-            dispatch({type:"GET_FAVS", payload: []})
+            dispatch({ type: "GET_FAVS", payload: [] })
         }
 
-    },[state.userIsLogged])
+    }, [state.userIsLogged])
 
     console.log(state)
-     
 
-    return(
-        <GlobalContext.Provider value={{state,dispatch}}>
+
+    return (
+        <GlobalContext.Provider value={{ state, dispatch }}>
             {children}
         </GlobalContext.Provider>
     )
