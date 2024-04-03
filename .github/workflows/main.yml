@@ -29,9 +29,9 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_HOST }}
-          passphrase: ${{ secrets.EC2_PASSPHRASE }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
+          passphrase: ${{ secrets.EC2_PASSPHRASE }}
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             sudo systemctl stop nginx.service
