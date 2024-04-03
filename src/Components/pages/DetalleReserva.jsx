@@ -46,7 +46,7 @@ const ReservaConfirmada = () => {
                 Pago: <span className="font-[500]">{reserva.formaDePago}</span>
               </h2>
               <h2 className="font-bold">
-                Total: <span className="font-[500]">USD 9000</span>
+                Total: <span className="font-[500]">USD {reserva.total}</span>
               </h2>
               <div className="flex">
                 <Button onClick={()=>print('voucher', 'toPdf')} className="bg-primaryGold text-primaryWhite">
