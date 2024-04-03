@@ -3,7 +3,7 @@ import PublicacionCard from "../cards/PublicacionCard"; // Importa tu componente
 import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../../context/AppContext";
 import ReservaCard from "../cards/ReservaCard";
-import { Button } from "@nextui-org/react";
+import { Button, Spinner } from "@nextui-org/react";
 import Swal from "sweetalert2";
 import {
   Modal,
@@ -18,6 +18,7 @@ import Login from "./Login";
 const ReservaSeleccionada = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const [isLoading, setIsLoading] = useState(false)
   const { state, dispatch } = useContext(GlobalContext);
 
   const { reservaSeleccionada } = state;
@@ -43,22 +44,64 @@ const ReservaSeleccionada = () => {
     formaDePago: reservaSeleccionada.formaDePago,
     fechaComienzo: inicioFormateado,
     fechaFin: finFormateado,
-    usuarioId: state.user?.id,
+    email: "",
+    recogida: reservaSeleccionada.recogida,
+    entrega:reservaSeleccionada.entrega
   });
 
-  const handleConfirmarReserva = () => {
-    if (!state.userIsLogged) {
-      Swal.fire({
-        title: "Debes iniciar sesión para poder continuar",
-        icon: "error",
-        color: "#032047",
-        confirmButtonColor: "#ba8f04",
-        confirmButtonText: "Iniciar sesión",
-      });
-    } else {
-      navigate("/reserva/checkout");
+  const handleSubmit  = async () => {
+
+    const settings = {
+      method:"POST",
+      headers:{
+        "Authorization": `Bearer: ${localStorage.getItem("Authorization")}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(reservaPayload)
     }
-  };
+
+    setIsLoading(true)
+    try{
+      const response = await fetch("http://44.204.2.67:8085/reservas/crear", settings)
+
+      if(response.ok){
+        Swal.fire({
+          title:"¡Reserva realizada con éxito!",
+          icon:"success",
+          toast:true,
+          timer:3000,
+          showConfirmButton:false,
+          position:"bottom"
+        })
+        navigate("/reserva/checkout")
+      }else{
+        Swal.fire({
+          title:"Opss algo salio mal",
+          icon:"error",
+          toast:true,
+          timer:3000,
+          showConfirmButton:false,
+          position:"bottom"
+        })
+        setIsLoading(false)
+      }
+    }catch(err){
+      console.log(err)
+
+    }finally{
+      setIsLoading(false)
+    }
+
+  }
+
+  useEffect(() => {
+    if(state.userIsLogged){
+      setReservaPayload({...reservaPayload, email: state.user.email})
+    }
+
+  },[state.user])
+
+  
 
   const navigate = useNavigate();
 
@@ -127,9 +170,9 @@ const ReservaSeleccionada = () => {
           <Button
             size="lg"
             className="bg-primaryGold text-primaryWhite w-[60%]"
-            onClick={() => handleConfirmarReserva()}
+            onClick={() => handleSubmit()}
           >
-            Pagar y confirmar reserva
+            {isLoading ? <Spinner/> : "Pagar y confirmar reserva"}
           </Button>
         ) : (
           <Button

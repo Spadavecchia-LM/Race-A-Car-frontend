@@ -199,7 +199,7 @@ const Header = () => {
         <ModalContent>
           {(onClose) => (
             <>
-            <ModalHeader>Iniciar sesíon</ModalHeader>
+            <ModalHeader className="text-primaryWhite">Iniciar sesíon</ModalHeader>
               <ModalBody>
                     <Login/>
               </ModalBody>
@@ -207,7 +207,7 @@ const Header = () => {
                 <Button className="bg-primaryGold text-primaryWhite" variant="light" onPress={onClose}>
                   cerrar
                 </Button>
-                <Button>Crear cuenta</Button>
+               
               </ModalFooter>
             </>
           )}

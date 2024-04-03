@@ -34,7 +34,7 @@ const Login = () => {
       timer: 2000,
       toast:true,
       color:"#032047",
-      position:"bottom"
+      position:"center"
     });
   }
 
