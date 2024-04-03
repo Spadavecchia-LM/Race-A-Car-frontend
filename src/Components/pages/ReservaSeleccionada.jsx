@@ -28,13 +28,15 @@ const ReservaSeleccionada = () => {
 
   const inicioAño = inicioSinFormatear.getFullYear();
   let inicioMes = inicioSinFormatear.getMonth() + 1;
-  const inicioDia = inicioSinFormatear.getDate();
+  let inicioDia = inicioSinFormatear.getDate();
   inicioMes = inicioMes < 10 ? "0" + inicioMes : inicioMes;
+  inicioDia = inicioDia < 10 ? "0" + inicioDia : inicioDia;
 
   const finAño = finSinFormatear.getFullYear();
   let finMes = finSinFormatear.getMonth() + 1;
-  const finDia = finSinFormatear.getDate();
+  let finDia = finSinFormatear.getDate();
   finMes = finMes < 10 ? "0" + finMes : finMes;
+  finDia = finDia < 10 ? "0" + finDia : finDia;
 
   const inicioFormateado = `${inicioAño}-${inicioMes}-${inicioDia}`;
   const finFormateado = `${finAño}-${finMes}-${finDia}`;
@@ -48,6 +50,19 @@ const ReservaSeleccionada = () => {
     recogida: reservaSeleccionada.recogida,
     entrega:reservaSeleccionada.entrega
   });
+  
+  const refrescarReservas = async() => {
+    try{
+      const response = await fetch("http://44.204.2.67:8085/reservas/" + state.user.id)
+
+      if(response.ok){
+          const data = await response.json()
+          dispatch({type:"GET_RESERVAS_USUARIO", payload: data.reverse()})
+      }
+  }catch(err){
+      console.log(err)
+  }
+  }
 
   const handleSubmit  = async () => {
 
@@ -59,7 +74,6 @@ const ReservaSeleccionada = () => {
       },
       body: JSON.stringify(reservaPayload)
     }
-
     setIsLoading(true)
     try{
       const response = await fetch("http://44.204.2.67:8085/reservas/crear", settings)
@@ -73,7 +87,9 @@ const ReservaSeleccionada = () => {
           showConfirmButton:false,
           position:"bottom"
         })
-        navigate("/reserva/checkout")
+        const data = await response.json()
+        await refrescarReservas()
+        navigate("/reserva/checkout/" + data.id)
       }else{
         Swal.fire({
           title:"Opss algo salio mal",

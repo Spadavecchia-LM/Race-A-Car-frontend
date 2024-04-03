@@ -17,7 +17,8 @@ const AppContext = ({ children }) => {
         fechas: null,
         reservaSeleccionada: null,
         fechaInicioReserva: "",
-        fechaFinReserva:""
+        fechaFinReserva:"",
+        reservasUsuario: []
 
     }
     const reducer = (state, action) => {
@@ -57,6 +58,8 @@ const AppContext = ({ children }) => {
                 return {...state, fechaInicioReserva: action.payload}
             case "SET_FIN_RESERVA":
                 return {...state, fechaFinReserva: action.payload}
+            case "GET_RESERVAS_USUARIO":
+                return {...state, reservasUsuario: action.payload}
         }
 
 
@@ -108,13 +111,33 @@ const AppContext = ({ children }) => {
             console.log(err)
         }
     }
+    const getReservas = async (id) => {
+        try{
+            const response = await fetch("http://44.204.2.67:8085/reservas/" + id)
+
+            if(response.ok){
+                const data = await response.json()
+                dispatch({type:"GET_RESERVAS_USUARIO", payload: data.reverse()})
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
 
     useEffect(() => {
         if (state.userIsLogged && state.userEmail != null) {
             getUser(state.userEmail)
+           
         }
 
     }, [state.userIsLogged, state.userEmail])
+
+    useEffect(() => {
+        if(state.user != null){
+            getReservas(state.user.id)
+        }
+    
+    },[state.user])
 
 
 

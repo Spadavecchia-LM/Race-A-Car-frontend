@@ -44,7 +44,7 @@ function App() {
        <Route path="/ReservaSeleccionada/:id" element={<ReservaSeleccionada />} />
        <Route path="/user/misreservas" element={<MisReservas />} />
        <Route path="/checkout" element={<PagarReserva/>}/>
-       <Route path="/reserva/checkout" element={<DetalleReserva/>}/>
+       <Route path="/reserva/checkout/:reservaId" element={<DetalleReserva/>}/>
    </Routes>
    <Foot/>
    <WhatasppIcon/>
