@@ -24,7 +24,7 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           passphrase: renta
           source: "dist"
-          target: "/var/www/html"
+          target: "/var/www/html/prin"
 
       - name: SSH into EC2 and restart Nginx
         uses: appleboy/ssh-action@master
