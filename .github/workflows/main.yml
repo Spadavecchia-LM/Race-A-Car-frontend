@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           passphrase: renta
-          source: "dist/"
+          source: "dist/*"
           target: "/var/www/html/prin"
 
       - name: SSH into EC2 and restart Nginx
@@ -35,5 +35,4 @@ jobs:
           passphrase: renta
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
-            sudo systemctl stop nginx.service
-            sudo systemctl start nginx.service
+            sudo systemctl restart nginx.service
