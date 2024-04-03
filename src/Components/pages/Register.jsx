@@ -81,7 +81,7 @@ const Register = () => {
           body: JSON.stringify(payload)
         }
 
-        const response = await fetch("http://44.204.2.67:8085/auth/register", settings)
+        const response = await fetch(import.meta.env.VITE_BACKENDURL + "/auth/register", settings)
 
         if(response.ok){
 

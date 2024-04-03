@@ -30,11 +30,28 @@ const PublicacionCard = ({ publicacion }) => {
           JSON.stringify([...state.favoritos, publicacion])
         );
         Swal.fire({
-          title: "Se agregó a favoritos",
+          title: "se agrego a favoritos",
+          toast:true,
+          showConfirmButton:false,
+          position:"bottom",
+          timer:2000,
+          icon:"success",
+          color:"#032047"
         });
       }
     } else {
-      Swal.fire("Debes iniciar sesión para poder agregar a favoritos");
+      Swal.fire(
+        {
+          title: "Debes iniciar sesión para poder agregar a favoritos",
+          toast:true,
+          showConfirmButton:false,
+          position:"bottom",
+          timer:2000,
+          color:"#032047",
+          icon:"warning",
+          iconColor:"#ba8f04"
+        }
+        );
     }
   };
 
@@ -42,7 +59,18 @@ const PublicacionCard = ({ publicacion }) => {
     const nuevosFavoritos = favoritos.filter((fav) => fav.id !== id);
     localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
     dispatch({ type: "ELIMINAR_FAV", payload: id });
-    alert("Se quitó de favoritos");
+    Swal.fire(
+      {
+        title: "se quito de favoritos",
+        toast:true,
+        showConfirmButton:false,
+        position:"bottom",
+        timer:2000,
+        color:"#032047",
+        icon:"error",
+        
+      }
+      );
   };
 
   const isInFavs = (id) => {

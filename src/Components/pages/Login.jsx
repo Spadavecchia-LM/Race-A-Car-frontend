@@ -31,9 +31,11 @@ const Login = () => {
       icon: "success",
       title: "Iniciaste sesión correctamente",
       showConfirmButton: true,
-      timer: 3000
+      timer: 2000,
+      toast:true,
+      color:"#032047",
+      position:"center"
     });
-    navigate("/")
   }
 
 
@@ -44,7 +46,7 @@ const Login = () => {
 
 
     try{
-      const response = await fetch("http://44.204.2.67:8085/auth/login", {
+      const response = await fetch(import.meta.env.VITE_BACKENDURL + "/auth/login", {
         method:"POST",
         body: JSON.stringify(user),
         headers:{
@@ -89,7 +91,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex items-center min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
+    <div className="flex items-center h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
 
       
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">

@@ -20,11 +20,20 @@ import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GlobalContext } from "../../context/AppContext";
-
+import {
+  Modal, 
+  ModalContent, 
+  ModalHeader, 
+  ModalBody, 
+  ModalFooter,
+  useDisclosure
+} from "@nextui-org/react";
+import Login from "../pages/Login";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const { state, dispatch } = useContext(GlobalContext);
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   const { userIsLogged } = state;
 
@@ -32,6 +41,7 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  
 
 
   const logout = () => {
@@ -58,7 +68,6 @@ const Header = () => {
 
   const navigateAndClose = (url) => {
     navigate(url);
-    
   };
 
   return (
@@ -84,7 +93,7 @@ const Header = () => {
             <DropdownMenu aria-label="Static Actions">
               <DropdownItem
                 key="iniciar sesion"
-                onClick={() => navigate("/login")}
+               onPress={onOpen}
               >
                 Iniciar sesión
               </DropdownItem>
@@ -186,6 +195,24 @@ const Header = () => {
               </NavbarMenuItem>
             ))}
       </NavbarMenu>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="4xl" className="bg-primaryBlue">
+        <ModalContent>
+          {(onClose) => (
+            <>
+            <ModalHeader className="text-primaryWhite">Iniciar sesíon</ModalHeader>
+              <ModalBody>
+                    <Login/>
+              </ModalBody>
+              <ModalFooter>
+                <Button className="bg-primaryGold text-primaryWhite" variant="light" onPress={onClose}>
+                  cerrar
+                </Button>
+               
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </Navbar>
   );
 };

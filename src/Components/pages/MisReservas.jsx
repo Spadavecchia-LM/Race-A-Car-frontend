@@ -17,7 +17,7 @@ const MisReservas = () => {
         lugarDevolucion: "Centro de la ciudad",
       },
       {
-        id: 1,
+        id: 2,
         codigo: "ABC123",
         modeloAuto: "Toyota Corolla",
         desde: "2024-03-20",
@@ -29,7 +29,7 @@ const MisReservas = () => {
 
   const reservasFinalizadas = [
     {
-        id: 2,
+        id: 3,
         codigo: "DEF456",
         modeloAuto: "Honda Civic",
         desde: "2024-03-10",
