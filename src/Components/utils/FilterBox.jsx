@@ -25,7 +25,7 @@ const FilterBox = ({array}) => {
   useEffect(() => {
     const getCategorias = async () => {
       try {
-        const response = await fetch("http://44.204.2.67:8085/categoria/all");
+        const response = await fetch(import.meta.env.VITE_BACKENDURL + "/categoria/all");
         if (response.ok) {
           const data = await response.json();
           setCategorias(data);

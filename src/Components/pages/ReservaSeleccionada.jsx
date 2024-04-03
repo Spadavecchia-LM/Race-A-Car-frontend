@@ -53,7 +53,7 @@ const ReservaSeleccionada = () => {
   
   const refrescarReservas = async() => {
     try{
-      const response = await fetch("http://44.204.2.67:8085/reservas/" + state.user.id)
+      const response = await fetch(import.meta.env.VITE_BACKENDURL + "/reservas/" + state.user.id)
 
       if(response.ok){
           const data = await response.json()
@@ -76,7 +76,7 @@ const ReservaSeleccionada = () => {
     }
     setIsLoading(true)
     try{
-      const response = await fetch("http://44.204.2.67:8085/reservas/crear", settings)
+      const response = await fetch(import.meta.env.VITE_BACKENDURL + "/reservas/crear", settings)
 
       if(response.ok){
         Swal.fire({

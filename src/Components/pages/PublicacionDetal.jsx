@@ -45,7 +45,7 @@ const PublicacionDetal = ({ publicacion }) => {
     const getFechasInhabilitadas = async () => {
       try {
         const response = await fetch(
-          "http://44.204.2.67:8085/reservas/" + publicacion.id + "/fechasInhabilitadas"
+          import.meta.env.VITE_BACKENDURL + "/reservas/" + publicacion.id + "/fechasInhabilitadas"
         );
         if (response.ok) {
           const data = await response.json();

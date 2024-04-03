@@ -75,7 +75,7 @@ const AppContext = ({ children }) => {
 
 
         try {
-            const response = await fetch("http://44.204.2.67:8085/autos/disponibles")
+            const response = await fetch(import.meta.env.VITE_BACKENDURL + "/autos/disponibles")
 
             if (response.ok) {
                 const data = await response.json()
@@ -91,7 +91,7 @@ const AppContext = ({ children }) => {
 
     const getUser = async (email) => {
         try {
-            const response = await fetch(`http://44.204.2.67:8085/usuarios/${email}`,
+            const response = await fetch(`${import.meta.env.VITE_BACKENDURL}/usuarios/${email}`,
                 {
                     headers: {
                         "Authorization": `Bearer: ${localStorage.getItem("Authorization")}`,
@@ -113,7 +113,7 @@ const AppContext = ({ children }) => {
     }
     const getReservas = async (id) => {
         try{
-            const response = await fetch("http://44.204.2.67:8085/reservas/" + id)
+            const response = await fetch(import.meta.env.VITE_BACKENDURL + "/reservas/" + id)
 
             if(response.ok){
                 const data = await response.json()
