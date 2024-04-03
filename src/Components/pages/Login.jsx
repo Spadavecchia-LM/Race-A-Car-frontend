@@ -32,9 +32,10 @@ const Login = () => {
       title: "Iniciaste sesión correctamente",
       showConfirmButton: true,
       timer: 2000,
-      color:"#032047"
+      toast:true,
+      color:"#032047",
+      position:"bottom"
     });
-    navigate("/")
   }
 
 
@@ -90,7 +91,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex items-center min-h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
+    <div className="flex items-center h-screen flex-1 flex-col justify-start px-6 py-12 lg:px-8 bg-primaryBlue bg-[url('./assets/porscheLogin.jpg')] bg-cover text-primaryWhite">
 
       
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">

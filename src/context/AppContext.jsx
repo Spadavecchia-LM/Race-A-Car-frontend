@@ -15,7 +15,7 @@ const AppContext = ({ children }) => {
         autosEntreFechas: [],
         favoritos: [],
         fechas: null,
-        resevaSeleccionada: null,
+        reservaSeleccionada: null,
         fechaInicioReserva: "",
         fechaFinReserva:""
 

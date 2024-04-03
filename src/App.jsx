@@ -17,6 +17,8 @@ import ReservaSeleccionada from "./Components/pages/ReservaSeleccionada";
 import MisReservas from "./Components/pages/MisReservas";
 import DetalleReserva from "./Components/pages/DetalleReserva";
 import WhatasppIcon from "./Components/utils/WhatasppIcon"
+import PagarReserva from "./Components/pages/PagarReserva"
+
 
 
 function App() {
@@ -41,7 +43,8 @@ function App() {
        <Route path="/user/miCuenta" element={<MiCuenta/>}/>
        <Route path="/ReservaSeleccionada/:id" element={<ReservaSeleccionada />} />
        <Route path="/user/misreservas" element={<MisReservas />} />
-       <Route path="/detallereserva" element={<DetalleReserva />} />
+       <Route path="/checkout" element={<PagarReserva/>}/>
+       <Route path="/reserva/checkout" element={<DetalleReserva/>}/>
    </Routes>
    <Foot/>
    <WhatasppIcon/>

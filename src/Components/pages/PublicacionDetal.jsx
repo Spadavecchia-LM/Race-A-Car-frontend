@@ -9,6 +9,8 @@ import {
   ModalFooter,
   useDisclosure,
   Chip,
+  Autocomplete,
+  AutocompleteItem
 } from "@nextui-org/react";
 import { FaPhotoVideo } from "react-icons/fa";
 import { GlobalContext } from "../../context/AppContext";
@@ -26,11 +28,15 @@ import { GiCarWheel } from "react-icons/gi";
 import { LuFuel } from "react-icons/lu";
 import DateRangePicker from "../utils/DateRangePicker";
 import Politics from '../utils/Politics'
-import ReservaSeleccionada from "../pages/ReservaSeleccionada";
+import { municipios } from "../../js/municipios";
+import { BsGeoAlt } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 
 const PublicacionDetal = ({ publicacion }) => {
   const { state,dispatch } = useContext(GlobalContext);
+  const buenosAires = municipios.filter((mun) => mun.provincia.id == "06");
+
 
 
   const [disabledDates, setDisabledDates] = React.useState([]);
@@ -56,10 +62,29 @@ const PublicacionDetal = ({ publicacion }) => {
     getFechasInhabilitadas();
   }, []);
 
-
+  const [recogida, setRecogida] = useState("")
+  const [entrega, setEntrega] = useState("")
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [size, setSize] = React.useState("md");
+
+  const [reserva, setReserva] = useState({
+    auto: publicacion,
+    fechaComienzo: "",
+    fechaFin: "",
+    recogida: "",
+    entrega:"",
+    formaDePago: "VISA terminada en 0054"
+  })
+
+  useEffect(() => {
+    setReserva({...reserva, recogida: recogida,entrega: entrega})
+  },[recogida, entrega])
+
+  useEffect(() => {
+    setReserva({...reserva, fechaComienzo: state.fechaInicioReserva, fechaFin: state.fechaFinReserva})
+  },[state.fechaInicioReserva, state.fechaFinReserva])
+
 
   const handleOpen = (size) => {
     setSize(size);
@@ -74,7 +99,26 @@ const PublicacionDetal = ({ publicacion }) => {
   };
   const handleProceedToPayment = () => {
     // Redirigir al componente ReservaSeleccionada con la ID de la publicación
-    navigate(`/ReservaSeleccionada/${publicacion.id}`);
+    if(recogida == "" || entrega == ""){
+      Swal.fire({
+        title:"Tienes que elegir un lugar de entrega y uno de recogida antes de proceder con la reserva",
+        color:"#032047",
+        icon:"error",
+        toast:true,
+        timer:4000
+
+      })
+    }
+    
+    else{
+      dispatch({type:"SET_RESERVA", payload:reserva})
+      navigate(`/ReservaSeleccionada/${publicacion.id}`);
+      window.scrollTo({left:0, top:0, behavior:"instant"})
+    }
+
+
+
+
   };
 
   const {
@@ -292,6 +336,53 @@ const PublicacionDetal = ({ publicacion }) => {
         <div className="flex w-full justify-center gap-4">
                     <DateRangePicker disabledDates={disabledDates}/>
         </div>
+        <div className="bg-[#d4d4d4] p-10 mt-5 flex flex-col gap-5 rounded-lg sm:w-1/2 mx-auto w-[90%]">
+        <Autocomplete
+            variant="flat"
+            labelPlacement="outside"
+            label="Lugar de recogida"
+            isRequired
+            aria-label="municipios"
+            size="lg"
+            startContent={<BsGeoAlt />}
+            defaultItems={buenosAires}
+            selectedKey={recogida}
+            onSelectionChange={setRecogida}
+          >
+            {(item) => (
+              <AutocompleteItem
+                endContent={item.provincia.nombre}
+                key={item.nombre}
+                
+              >
+                {item.nombre}
+              </AutocompleteItem>
+            )}
+          </Autocomplete>
+          <Autocomplete
+            variant="flat"
+            isRequired
+            labelPlacement="outside"
+            label="Lugar de entrega"
+            aria-label="municipios"
+            size="lg"
+            startContent={<BsGeoAlt />}
+            defaultItems={buenosAires}
+            selectedKey={entrega}
+            onSelectionChange={setEntrega}
+           
+          >
+            {(item) => (
+              <AutocompleteItem
+                endContent={item.provincia.nombre}
+                key={item.nombre}
+               
+              >
+                {item.nombre}
+              </AutocompleteItem>
+            )}
+          </Autocomplete>
+        </div>
       </div>
       }
      
@@ -309,7 +400,7 @@ const PublicacionDetal = ({ publicacion }) => {
           className="bg-primaryGold my-5 mx-auto text-primaryWhite w-[80%] sm:w-[90%] text-[18px] px-[24px] py-[12px]"
           size="lg"
           radius="lg"
-          onClick={handleProceedToPayment}
+          onClick={()=> handleProceedToPayment()}
         >
           Proceder con la reserva
         </Button>

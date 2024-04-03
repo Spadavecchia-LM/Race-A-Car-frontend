@@ -14,7 +14,6 @@ const DateRangePicker  = ({ disabledDates}) => {
   useEffect(() => {
     dispatch({type:"SET_INICIO_RESERVA", payload: startDate})
     dispatch({type:"SET_FIN_RESERVA", payload: endDate})
-
   },[endDate, startDate])
 
   return (
