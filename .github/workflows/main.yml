@@ -35,6 +35,4 @@ jobs:
           passphrase: renta
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
-            sudo mv ./var/www/html/prin/dist/* ./var/www/html/prin/
-            rm -r ./var/www/html/prin/dist/
             sudo systemctl restart nginx.service
