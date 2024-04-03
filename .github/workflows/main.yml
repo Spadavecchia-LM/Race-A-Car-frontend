@@ -22,7 +22,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          passphrase: ${{ secrets.EC2_PASSPHRASE }}
+          passphrase: renta
           source: "dist"
           target: "/var/www/html"
 
@@ -32,7 +32,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          passphrase: ${{ secrets.EC2_PASSPHRASE }}
+          passphrase: renta
           port: ${{ secrets.EC2_SSH_PORT }}
           script: |
             sudo systemctl stop nginx.service
