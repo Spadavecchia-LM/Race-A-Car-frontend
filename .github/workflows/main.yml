@@ -36,3 +36,4 @@ jobs:
           script: |
             sudo systemctl stop nginx.service
             sudo systemctl start nginx.service
+
