@@ -76,7 +76,7 @@ const AppContext = ({ children }) => {
 
         try {
             const response = await fetch(import.meta.env.VITE_BACKENDURL + "/autos/disponibles")
-
+            console.log(response)
             if (response.ok) {
                 const data = await response.json()
                 dispatch({ type: "GET_AUTOS", payload: data })

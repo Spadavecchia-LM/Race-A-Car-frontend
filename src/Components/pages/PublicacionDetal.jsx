@@ -36,11 +36,36 @@ import Swal from "sweetalert2";
 const PublicacionDetal = ({ publicacion }) => {
   const { state,dispatch } = useContext(GlobalContext);
   const buenosAires = municipios.filter((mun) => mun.provincia.id == "06");
+const [items, setItems] = useState([])
+
+
 
 
 
   const [disabledDates, setDisabledDates] = React.useState([]);
   const [loading, setLoading] = useState(true);
+
+
+
+
+  useEffect(() => {
+
+    const getItems = async() => {
+      
+      try{
+        const response = await fetch(import.meta.env.VITE_BACKENDURL + "/items/todos")
+        if(response.ok){
+          const data = await response.json()
+          setItems(data)
+        }
+      }catch(err){
+        console.log(err)
+      }
+    }
+    getItems()
+
+  },[])
+
   useEffect(() => {
     const getFechasInhabilitadas = async () => {
       try {
@@ -296,7 +321,7 @@ const PublicacionDetal = ({ publicacion }) => {
             <div className="text-primaryWhite grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-1 place-items-start md:place-items-center ">
               <div className="list-disc list-inside flex flex-col justify-start items-start">
                 <ul className="list-disc list-inside flex flex-col gap-10">
-                  {publicacion.items.map(i => {
+                  {items.map(i => {
                     return(
                       <li className="text-[14px]  md:text-[18px]" key={i.id}>
                       {i.nombre}

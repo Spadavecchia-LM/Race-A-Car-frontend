@@ -18,8 +18,11 @@ body{
 input:focus{
     box-shadow:none !important;
 }
+#valorarText:focus{
+    box-shadow:none !important;
+}
 
-input{
+input, #valorarText{
     border-style:none;
 }
  

@@ -1,11 +1,17 @@
 import { Button, Card, CardBody, CardFooter, CardHeader, Image } from "@nextui-org/react";
 import React from "react";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure} from "@nextui-org/react";
+import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, useDisclosure} from "@nextui-org/react";
 
 import DetalleModal from "../pages/DetalleModal";
+import Valorar from "../utils/Valorar";
+
 const Reserva = ({ reserva }) => {
 
-const {isOpen, onOpen, onOpenChange} = useDisclosure();
+const {isOpen:isOpenDetalle,onOpen: onOpenDetalle,onOpenChange:onOpenChangeDetalle} = useDisclosure();
+const {isOpen:isOpenValorar,onOpen: onOpenValorar,onOpenChange:onOpenChangeValorar} = useDisclosure();
+
+const fin = new Date(reserva.fechaFin).getTime(); // Obtener el tiempo en milisegundos
+const hoy = new Date().getTime();
 
   return (
     <>
@@ -26,22 +32,46 @@ const {isOpen, onOpen, onOpenChange} = useDisclosure();
         
           </CardBody>
           <CardFooter className="flex justify-between items-center gap-3 sm:gap-0 flex-wrap">
-            <Button onPress={onOpen} className="text-primaryWhite bg-primaryGold">Ver detalles</Button>
+            <Button size="md" onPress={onOpenDetalle} className="text-primaryWhite bg-primaryGold">Ver detalles</Button>
             <div className="flex flex-col text-primaryBlue font-[600]">
+                {fin - hoy > 0 ? 
+                  <>
                 <p>Retiro en: {reserva.recogida}</p>
                 <p>Devolucion en: {reserva.entrega}</p>
+                  </>
+                  :
+                  <Button onPress={onOpenValorar} size="md" className="bg-primaryBlue text-primaryWhite">Valorar</Button>
+              }
+             
             </div>
           </CardFooter>
         </Card>
       </div>
 
-      <Modal size="full" isOpen={isOpen} onOpenChange={onOpenChange} scrollBehavior="inside" className="bg-secondaryBlue">
+      <Modal size="full" isOpen={isOpenDetalle} onOpenChange={onOpenChangeDetalle} scrollBehavior="inside" className="bg-secondaryBlue">
         <ModalContent>
           {(onClose) => (
             <>
             
               <ModalBody>
                 <DetalleModal reserva={reserva}/>
+              </ModalBody>
+              <ModalFooter>
+                <Button className="text-primaryWhite bg-primaryGold" onPress={onClose}>
+                  Cerrar
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+      <Modal size="xl" isOpen={isOpenValorar} onOpenChange={onOpenChangeValorar} scrollBehavior="inside">
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader>Dejanos tu opinion</ModalHeader>
+              <ModalBody>
+                <Valorar reserva={reserva}/>
               </ModalBody>
               <ModalFooter>
                 <Button className="text-primaryWhite bg-primaryGold" onPress={onClose}>
