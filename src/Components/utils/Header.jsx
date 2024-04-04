@@ -60,6 +60,7 @@ const Header = () => {
     { name: "Iniciar sesión", path: "/login" },
   ];
   const menuItemsIfIsLogged = [
+    {name: "inicio", path:"/"},
     { name: "Mis reservas", path: "/user/misreservas" },
     { name: "Favoritos", path: "/user/favoritos" },
     { name: "Mi cuenta", path: "/user/miCuenta" },
@@ -94,12 +95,14 @@ const Header = () => {
               <DropdownItem
                 key="iniciar sesion"
                onPress={onOpen}
+               textValue="sesion"
               >
                 Iniciar sesión
               </DropdownItem>
               <DropdownItem
                 key="registro"
                 onClick={() => navigate("/register")}
+                textValue="register"
               >
                 Crear cuenta
               </DropdownItem>
@@ -118,10 +121,11 @@ const Header = () => {
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
-              <DropdownItem key="reservas">Mis reservas</DropdownItem>
-              <DropdownItem key="deseos" onClick={() => navigate("/user/favoritos", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Favoritos <Chip size="sm" color="danger">{state.favoritos.length}</Chip></DropdownItem>
-              <DropdownItem key="cuenta" onClick={() => navigate("/user/miCuenta", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Mi cuenta</DropdownItem>
-              <DropdownItem color="danger" key="logout" onClick={logout}>
+            <DropdownItem textValue="inicio" key="inicio" onClick={() => navigate("/")}>Inicio</DropdownItem>
+              <DropdownItem textValue="reserva" key="reservas" onClick={() => navigate("/user/misreservas")}>Mis reservas</DropdownItem>
+              <DropdownItem textValue="deseos" key="deseos" onClick={() => navigate("/user/favoritos", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Favoritos <Chip size="sm" color="danger">{state.favoritos.length}</Chip></DropdownItem>
+              <DropdownItem textValue="cuenta" key="cuenta" onClick={() => navigate("/user/miCuenta", window.scrollTo({left:0, top:0, behavior:"instant"}))}>Mi cuenta</DropdownItem>
+              <DropdownItem textValue="logout" color="danger" key="logout" onClick={logout}>
                 Cerrar sesión
               </DropdownItem>
             </DropdownMenu>
