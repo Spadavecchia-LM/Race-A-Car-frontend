@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
-
+import { createBrowserHistory } from 'history';
 
 export const GlobalContext = createContext()
 
@@ -66,7 +66,13 @@ const AppContext = ({ children }) => {
 
     }
 
+    
 
+    useEffect(() => {
+        window.onbeforeunload = () => {
+            history.push('/');
+          };
+    }, [history]);
 
     const [state, dispatch] = useReducer(reducer, initialValue)
 
