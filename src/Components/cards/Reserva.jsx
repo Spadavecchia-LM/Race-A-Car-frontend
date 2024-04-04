@@ -40,7 +40,13 @@ const hoy = new Date().getTime();
                 <p>Devolucion en: {reserva.entrega}</p>
                   </>
                   :
-                  <Button onPress={onOpenValorar} size="md" className="bg-primaryBlue text-primaryWhite">Valorar</Button>
+                  reserva.valoracion == null ? 
+                  <Button onPress={onOpenValorar} size="md" className="bg-primaryBlue text-primaryWhite">
+                    Valorar
+                    </Button>
+                    :
+                 
+                   "Mi reseña: '" + reserva.valoracion.resena + "'"
               }
              
             </div>
